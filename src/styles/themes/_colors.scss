@@ -1,0 +1,25 @@
+@mixin colors {
+  --color-shark: #181a20;
+  --color-charade: #262a33;
+  --color-bright-gray: #3c4250;
+  --color-cadet-blue: #a8a9c2;
+  --color-shuttle-gray: #5e6271;
+
+  --color-white: #fff;
+  --color-white-rgb: 255, 255, 255;
+
+  --color-kournikova: #ffdd72;
+  --color-kournikova-rgb: 255, 221, 114;
+
+  --color-dodger-blue: #246bf7;
+  --color-dodger-blue-rgb: 36, 107, 247;
+
+  --color-granny-smith-apple: #a4e98b;
+  --color-granny-smith-apple-rgb: 164, 233, 139;
+
+  --color-geraldine: #fb8f8a;
+  --color-geraldine-rgb: 251, 143, 138;
+
+  --color-heliotrope: #c160fa;
+  --color-heliotrope-rgb: 193, 96, 250;
+}
