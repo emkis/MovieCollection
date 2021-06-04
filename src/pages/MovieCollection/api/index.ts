@@ -1,14 +1,12 @@
-import { asyncDelay } from './utilities'
-import type { Movie } from './types'
-import { uuid } from '@/utilities'
+import { pick } from 'lodash-es'
 
-export async function fetchMovieCollection(delay = 1500) {
+import type { FullMovieData, MovieCard } from './types'
+import { uuid, asyncDelay } from '@/utilities'
+
+export async function fetchMovieCollection(delay = 1500): Promise<MovieCard[]> {
   await asyncDelay(delay)
   return movies.map((movie) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { reviews, ...movieData } = movie
-
-    return { ...movieData }
+    return pick(movie, 'id', 'name', 'category', 'score', 'year')
   })
 }
 
@@ -17,7 +15,7 @@ export async function fetchMovieDetail(targetMovieId: string, delay = 1500) {
   return movies.find((movie) => movie.id === targetMovieId)
 }
 
-const movies: Movie[] = [
+const movies: FullMovieData[] = [
   {
     id: uuid(),
     name: 'Interstellar',
