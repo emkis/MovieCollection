@@ -1,10 +1,21 @@
-import { pick } from 'lodash-es'
+import { pick, omit } from 'lodash-es'
 
 import type { FullMovieData, MovieCard } from './types'
 import { uuid, asyncDelay } from '@/utilities'
 
+function getMovieById(targetMovieId: string) {
+  const movie = movies.find((movie) => movie.id === targetMovieId)
+
+  if (!movie) {
+    throw new Error(`Movie id:"${targetMovieId}" not exists`)
+  }
+
+  return movie
+}
+
 export async function fetchMovieCollection(delay = 1500): Promise<MovieCard[]> {
   await asyncDelay(delay)
+
   return movies.map((movie) => {
     return pick(movie, 'id', 'name', 'category', 'score', 'year')
   })
@@ -12,7 +23,16 @@ export async function fetchMovieCollection(delay = 1500): Promise<MovieCard[]> {
 
 export async function fetchMovieDetail(targetMovieId: string, delay = 1500) {
   await asyncDelay(delay)
-  return movies.find((movie) => movie.id === targetMovieId)
+
+  const movie = getMovieById(targetMovieId)
+  return omit(movie, ['reviews'])
+}
+
+export async function fetchMovieReviews(targetMovieId: string, delay = 1500) {
+  await asyncDelay(delay)
+
+  const movie = getMovieById(targetMovieId)
+  return pick(movie, ['reviews'])
 }
 
 const movies: FullMovieData[] = [
