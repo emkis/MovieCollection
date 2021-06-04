@@ -3,13 +3,13 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { environment } from '@/configs/environment'
 import { handlePageTitle } from './helpers'
 
-import { Movies } from '../pages/Movies'
+import { MovieCollection } from '@/pages/MovieCollection'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Movies',
-    component: Movies,
+    name: 'MovieCollection',
+    component: MovieCollection,
   },
   {
     path: '/:pathMatch(.*)',

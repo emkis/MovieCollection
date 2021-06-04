@@ -1,12 +1,12 @@
 <template>
-  <Container class="Movie">
+  <Container class="MovieCollection">
     <Heading level="1">Top box office 🍿</Heading>
 
     <Heading level="2" v-if="isFetchingMovie">Loading movies...</Heading>
     <Heading level="2" v-if="isFetchFailed">Error while loading</Heading>
 
-    <ol class="Movie__list">
-      <li class="Movie__list-item" :key="movie.id" v-for="movie in movies">
+    <ol class="MovieCollection__list">
+      <li class="MovieCollection__list-item" :key="movie.id" v-for="movie in movies">
         <Heading level="3">{{ movie.name }}</Heading>
         <span>🍅 </span>
         <span>{{ movie.score }}%</span> -
@@ -29,14 +29,14 @@
 import { defineComponent, ref } from 'vue'
 
 import type { Movie } from './api/types'
-import { fetchMovieList } from './api'
+// import { fetchMovieList } from './api'
 
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 // import { Image } from './components/Image'
 
 export default defineComponent({
-  name: 'Movie',
+  name: 'MovieCollection',
   components: { Container, Heading },
   setup() {
     const movies = ref<Movie[]>([])
@@ -46,13 +46,13 @@ export default defineComponent({
     async function getMovies() {
       isFetchingMovie.value = true
 
-      try {
-        movies.value = await fetchMovieList()
-      } catch {
-        isFetchFailed.value = true
-      } finally {
-        isFetchingMovie.value = false
-      }
+      // try {
+      //   movies.value = await fetchMovieList()
+      // } catch {
+      //   isFetchFailed.value = true
+      // } finally {
+      //   isFetchingMovie.value = false
+      // }
     }
 
     getMovies()
@@ -63,7 +63,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.Movie {
+.MovieCollection {
   padding-top: rem(34px);
   text-align: center;
 
