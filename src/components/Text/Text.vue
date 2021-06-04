@@ -26,4 +26,8 @@ export default defineComponent({
     font-size: rem(20px);
   }
 }
+
+strong.Text {
+  font-weight: 600;
+}
 </style>
