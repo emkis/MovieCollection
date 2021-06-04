@@ -1,4 +1,4 @@
-export const STORAGE_PREFIX = '@clippycloud:'
+export const STORAGE_PREFIX = '@moviecollection:'
 
 export function isValidJSON(stringToTest: string): boolean {
   try {
