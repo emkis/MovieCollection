@@ -1,4 +1,4 @@
-export interface Movie {
+export interface MovieDetail {
   id: string
   name: string
   description: string
@@ -6,10 +6,9 @@ export interface Movie {
   score: number
   year: number
   durationInMinutes: number
-  reviews: Review[]
 }
 
-export interface Review {
+export interface MovieReview {
   id: string
   score: number
   comment: string
@@ -17,4 +16,8 @@ export interface Review {
   authorCompany: string
 }
 
-export type MovieCard = Pick<Movie, 'id' | 'name' | 'category' | 'score' | 'year'>
+export type MovieCard = Pick<MovieDetail, 'id' | 'name' | 'category' | 'score' | 'year'>
+
+export type FullMovieData = MovieDetail & {
+  reviews: MovieReview[]
+}
