@@ -1,4 +1,4 @@
-import type { FullMovieData } from './types'
+import type { FullMovieData } from '@/modules/movie/types'
 import { uuid } from '@/utilities'
 
 export const movies: FullMovieData[] = [

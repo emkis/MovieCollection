@@ -1,6 +1,6 @@
 import { pick, omit } from 'lodash-es'
 
-import type { MovieCard, MovieDetail, MovieReview } from './types'
+import type { MovieCard, MovieDetail, MovieReview } from '@/modules/movie/types'
 import { ApiService } from '@/services/api'
 import { asyncDelay } from '@/utilities'
 import { movies } from './static-data'
@@ -21,7 +21,7 @@ function getMovieById(targetMovieId: string) {
   return movie
 }
 
-export function createMovieService(_httpClient = ApiService): IMovieService {
+function createMovieService(_httpClient = ApiService): IMovieService {
   return {
     async fetchMovieCollection(delay = 1500) {
       await asyncDelay(delay)
