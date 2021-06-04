@@ -47,4 +47,4 @@ export function createMovieService(_httpClient = ApiService): IMovieService {
   }
 }
 
-export const WakeUpApi = createMovieService()
+export const MovieService = createMovieService()
