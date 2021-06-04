@@ -1,71 +1,75 @@
 <template>
   <Container class="MovieCollection">
-    <Heading level="1">Top box office 🍿</Heading>
+    <Heading level="1">Movie Collection 🍿</Heading>
+
+    <Text class="MovieCollection__description">
+      An awesome movie collection with some nice user interface interactions
+    </Text>
 
     <Heading level="2" v-if="isFetchingMovie">Loading movies...</Heading>
-    <Heading level="2" v-if="isFetchFailed">Error while loading</Heading>
+    <Heading level="2" v-if="isFetchFailed">Sorry, something went wrong :(</Heading>
 
     <ol class="MovieCollection__list">
       <li class="MovieCollection__list-item" :key="movie.id" v-for="movie in movies">
-        <Heading level="3">{{ movie.name }}</Heading>
-        <span>🍅 </span>
-        <span>{{ movie.score }}%</span> -
-        <span>{{ movie.year }}</span>
+        <MovieCard tabindex="0" role="button" :movie="movie" />
       </li>
     </ol>
-
-    <!-- <Suspense>
-      <Image
-        alt="Cool stuff"
-        src="https://cloud.headwayapp.co/changelogs_images/images/big/000/068/530-e7b211df6c65c9d713bdb192389967c37d85c9e0.png"
-      />
-
-      <template #fallback> Loading ... </template>
-    </Suspense> -->
   </Container>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
-import type { Movie } from './api/types'
-// import { fetchMovieList } from './api'
+import type { MovieCard as TMovieCard } from '@/modules/movie/types'
+import { MovieService } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
-// import { Image } from './components/Image'
+import { Text } from '@/components/Text'
+import MovieCard from './components/MovieCard.vue'
 
 export default defineComponent({
   name: 'MovieCollection',
-  components: { Container, Heading },
+  components: { Container, Heading, Text, MovieCard },
   setup() {
-    const movies = ref<Movie[]>([])
+    const movies = ref<TMovieCard[]>([])
     const isFetchingMovie = ref(true)
     const isFetchFailed = ref(false)
 
     async function getMovies() {
+      isFetchFailed.value = false
       isFetchingMovie.value = true
 
-      // try {
-      //   movies.value = await fetchMovieList()
-      // } catch {
-      //   isFetchFailed.value = true
-      // } finally {
-      //   isFetchingMovie.value = false
-      // }
+      try {
+        movies.value = await MovieService.fetchMovieCollection()
+      } catch {
+        isFetchFailed.value = true
+      } finally {
+        isFetchingMovie.value = false
+      }
     }
 
     getMovies()
 
-    return { movies, isFetchingMovie, isFetchFailed }
+    return {
+      movies,
+      isFetchingMovie,
+      isFetchFailed,
+    }
   },
 })
 </script>
 
 <style lang="scss" scoped>
 .MovieCollection {
-  padding-top: rem(34px);
+  margin: 0 auto;
+  max-width: rem(768px);
   text-align: center;
+
+  &__description {
+    margin: rem(24px auto 72px);
+    max-width: rem(450px);
+  }
 
   &__list {
     list-style: none;
