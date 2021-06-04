@@ -6,4 +6,6 @@
 - [ ] Build loader within `MovieCard`
 - [ ] Add task's based on Dan video, (define the behavior goal of this app)
 - [ ] Create fetcher hook based on the Evan You code
-- [ ]
+- [ ] Create Figma Cover for app
+- [ ] Create repo README
+- [ ] 
