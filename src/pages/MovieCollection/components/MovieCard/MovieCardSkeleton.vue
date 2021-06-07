@@ -43,6 +43,17 @@ export default defineComponent({ name: 'MovieCardSkeleton' })
     min-height: $square-height;
     background: var(--concept-over-background-element);
     border-radius: $border-radius-m;
+    animation: pulse 800ms infinite alternate;
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 </style>
