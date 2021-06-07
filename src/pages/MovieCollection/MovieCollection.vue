@@ -6,14 +6,23 @@
       An awesome movie collection with some nice user interface interactions
     </Text>
 
-    <Heading level="2" v-if="isFetchingMovie">Loading movies...</Heading>
     <Heading level="2" v-if="isFetchFailed">Sorry, something went wrong :(</Heading>
 
-    <ol class="MovieCollection__list">
-      <li class="MovieCollection__list-item" :key="movie.id" v-for="movie in movies">
-        <MovieCard tabindex="0" role="button" :movie="movie" />
-      </li>
-    </ol>
+    <section class="MovieCollection__movies">
+      <template v-if="isFetchingMovie">
+        <MovieCardSkeleton :key="item" v-for="item in 5" />
+      </template>
+
+      <template v-else>
+        <MovieCard
+          tabindex="0"
+          role="button"
+          :movie="movie"
+          :key="movie.id"
+          v-for="movie in movies"
+        />
+      </template>
+    </section>
   </Container>
 </template>
 
@@ -26,11 +35,11 @@ import { MovieService } from '@/services/api/movie'
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
-import MovieCard from './components/MovieCard.vue'
+import { MovieCard, MovieCardSkeleton } from './components/MovieCard'
 
 export default defineComponent({
   name: 'MovieCollection',
-  components: { Container, Heading, Text, MovieCard },
+  components: { Container, Heading, Text, MovieCard, MovieCardSkeleton },
   setup() {
     const movies = ref<TMovieCard[]>([])
     const isFetchingMovie = ref(true)
@@ -71,16 +80,8 @@ export default defineComponent({
     max-width: rem(450px);
   }
 
-  &__list {
-    list-style: none;
-  }
-
-  &__list-item {
-    text-align: left;
-
-    &:not(:last-child) {
-      margin-bottom: rem(24px);
-    }
+  &__movies > :not(:last-child) {
+    margin-bottom: rem(24px);
   }
 }
 </style>
