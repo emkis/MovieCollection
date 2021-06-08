@@ -1,10 +1,13 @@
 <template>
   <span class="MovieInfo">
-    <Text as="span">{{ age }}</Text>
+    <Text as="span">{{ year }}</Text>
     <InfoSpacing />
     <Text as="span">{{ categories }}</Text>
-    <InfoSpacing />
-    <Text as="span">{{ duration }}</Text>
+
+    <template v-if="hasDuration">
+      <InfoSpacing />
+      <Text as="span">{{ duration }}</Text>
+    </template>
   </span>
 </template>
 
@@ -18,14 +21,15 @@ export default defineComponent({
   name: 'MovieInfo',
   components: { Text, InfoSpacing },
   props: {
-    age: { type: String, required: true },
+    year: { type: String, required: true },
     category: { type: Array as PropType<string[]>, required: true },
-    duration: { type: String, required: true },
+    duration: { type: String, required: false },
   },
   setup(props) {
+    const hasDuration = computed(() => Boolean(props.duration))
     const categories = computed(() => props.category.join(', '))
 
-    return { categories }
+    return { categories, hasDuration }
   },
 })
 </script>
