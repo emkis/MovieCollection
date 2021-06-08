@@ -46,7 +46,7 @@ export const movies: FullMovieData[] = [
     name: 'The Girl With the Dragon Tattoo',
     description: `Disgraced financial reporter Mikael Blomkvist (Daniel Craig) finds a chance to redeem his honor after being hired by wealthy Swedish industrialist Henrik Vanger (Christopher Plummer) to solve the 40-year-old murder of Vanger's niece, Harriet. Vanger believes that Harriet was killed by a member of his own family. Eventually joining Blomkvist on his dangerous quest for the truth is Lisbeth Salander (Rooney Mara), an unusual but ingenious investigator whose fragile trust is not easily won.`,
     category: ['Mystery', 'Thriller', 'Crime'],
-    score: 87,
+    score: 45,
     year: 2011,
     duration: '2h 38min',
     reviews: [
@@ -103,7 +103,7 @@ export const movies: FullMovieData[] = [
     name: 'Kingsman: The Secret Service',
     description: `Gary "Eggsy" Unwin (Taron Egerton), whose late father secretly worked for a spy organization, lives in a South London housing estate and seems headed for a life behind bars. However, dapper agent Harry Hart (Colin Firth) recognizes potential in the youth and recruits him to be a trainee in the secret service. Meanwhile, villainous Richmond Valentine (Samuel L. Jackson) launches a diabolical plan to solve the problem of climate change via a worldwide killing spree.`,
     category: ['Action', 'Comedy'],
-    score: 75,
+    score: 49,
     year: 2014,
     duration: '2h 09min',
     reviews: [
