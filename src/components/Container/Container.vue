@@ -14,10 +14,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .Container {
-  padding: rem(120px 15px);
+  padding: rem(72px 15px);
 
   @media (min-width: 43.75em) {
-    padding: rem(160px 20px);
+    padding: rem(120px 24px);
   }
 }
 </style>
