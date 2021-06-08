@@ -29,7 +29,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
-import type { MovieCard as TMovieCard } from '@/modules/movie/types'
+import type { MovieCard as TMovieCard } from '@/modules/movie'
 import { MovieService } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
