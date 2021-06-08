@@ -5,7 +5,7 @@ export interface MovieDetail {
   category: string[]
   score: number
   year: number
-  durationInMinutes: number
+  duration: string
 }
 
 export interface MovieReview {

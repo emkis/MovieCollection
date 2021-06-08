@@ -9,7 +9,7 @@ export const movies: FullMovieData[] = [
     description: `In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home.`,
     score: 72,
     year: 2014,
-    durationInMinutes: 165,
+    duration: '2h 45min',
     reviews: [
       {
         id: uuid(),
@@ -48,7 +48,7 @@ export const movies: FullMovieData[] = [
     category: ['Mystery', 'Thriller', 'Crime'],
     score: 87,
     year: 2011,
-    durationInMinutes: 158,
+    duration: '2h 38min',
     reviews: [
       {
         id: uuid(),
@@ -87,7 +87,7 @@ export const movies: FullMovieData[] = [
     category: ['Animation', 'Adventure'],
     score: 93,
     year: 2018,
-    durationInMinutes: 118,
+    duration: '1h 58min',
     reviews: [
       {
         id: uuid(),
@@ -105,7 +105,7 @@ export const movies: FullMovieData[] = [
     category: ['Action', 'Comedy'],
     score: 75,
     year: 2014,
-    durationInMinutes: 129,
+    duration: '2h 09min',
     reviews: [
       {
         id: uuid(),
@@ -130,7 +130,7 @@ export const movies: FullMovieData[] = [
     category: ['Mystery', 'Thriller', 'Horror'],
     score: 96,
     year: 2018,
-    durationInMinutes: 130,
+    duration: '2h 10min',
     reviews: [
       {
         id: uuid(),
@@ -155,7 +155,7 @@ export const movies: FullMovieData[] = [
     category: ['Kids & family', 'Animation'],
     score: 98,
     year: 2021,
-    durationInMinutes: 116,
+    duration: '1h 56min',
     reviews: [
       {
         id: uuid(),
