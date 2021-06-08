@@ -59,7 +59,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .MovieDetail {
-  $poster-height: 40vh;
+  $poster-height: 400px;
 
   position: relative;
   max-width: 768px;
