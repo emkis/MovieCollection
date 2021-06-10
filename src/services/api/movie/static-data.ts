@@ -3,7 +3,7 @@ import { uuid } from '@/utilities'
 
 export const movies: FullMovieData[] = [
   {
-    id: uuid(),
+    id: 'zmr-tag-uhu',
     name: 'Interstellar',
     category: ['Action', 'Sci-fi'],
     description: `In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home.`,
@@ -42,7 +42,7 @@ export const movies: FullMovieData[] = [
     ],
   },
   {
-    id: uuid(),
+    id: 'lqp-img-eyt',
     name: 'The Girl With the Dragon Tattoo',
     description: `Disgraced financial reporter Mikael Blomkvist (Daniel Craig) finds a chance to redeem his honor after being hired by wealthy Swedish industrialist Henrik Vanger (Christopher Plummer) to solve the 40-year-old murder of Vanger's niece, Harriet. Vanger believes that Harriet was killed by a member of his own family. Eventually joining Blomkvist on his dangerous quest for the truth is Lisbeth Salander (Rooney Mara), an unusual but ingenious investigator whose fragile trust is not easily won.`,
     category: ['Mystery', 'Thriller', 'Crime'],
@@ -81,7 +81,7 @@ export const movies: FullMovieData[] = [
     ],
   },
   {
-    id: uuid(),
+    id: 'aqz-ewf-ueg',
     name: 'Incredibles 2',
     description: `Telecommunications guru Winston Deavor enlists Elastigirl to fight crime and make the public fall in love with superheroes once again. That leaves Mr. Incredible with one of his greatest challenges ever -- staying home and taking care of three rambunctious children. As Violet, Dash and Jack-Jack offer him a new set of headaches, a cybercriminal named Screenslaver launches his dastardly plan -- hypnotizing the world through computer screens.`,
     category: ['Animation', 'Adventure'],
@@ -99,7 +99,7 @@ export const movies: FullMovieData[] = [
     ],
   },
   {
-    id: uuid(),
+    id: 'kpi-wqt-nvc',
     name: 'Kingsman: The Secret Service',
     description: `Gary "Eggsy" Unwin (Taron Egerton), whose late father secretly worked for a spy organization, lives in a South London housing estate and seems headed for a life behind bars. However, dapper agent Harry Hart (Colin Firth) recognizes potential in the youth and recruits him to be a trainee in the secret service. Meanwhile, villainous Richmond Valentine (Samuel L. Jackson) launches a diabolical plan to solve the problem of climate change via a worldwide killing spree.`,
     category: ['Action', 'Comedy'],
@@ -124,7 +124,7 @@ export const movies: FullMovieData[] = [
     ],
   },
   {
-    id: uuid(),
+    id: 'klo-rci-utn',
     name: 'A Quiet Place',
     description: `If they hear you, they hunt you. A family must live in silence to avoid mysterious creatures that hunt by sound. Knowing that even the slightest whisper or footstep can bring death, Evelyn and Lee are determined to find a way to protect their children while desperately searching for a way to fight back.`,
     category: ['Mystery', 'Thriller', 'Horror'],
@@ -149,7 +149,7 @@ export const movies: FullMovieData[] = [
     ],
   },
   {
-    id: uuid(),
+    id: 'hfk-cms-oru',
     name: 'The Mitchells vs. the Machines',
     description: `Young Katie Mitchell embarks on a road trip with her proud parents, younger brother and beloved dog to start her first year at film school. But their plans to bond as a family soon get interrupted when the world's electronic devices come to life to stage an uprising. With help from two friendly robots, the Mitchells must now come together to save one another -- and the planet -- from the new technological revolution.`,
     category: ['Kids & family', 'Animation'],
