@@ -20,6 +20,8 @@
           :movie="movie"
           :key="movie.id"
           v-for="movie in movies"
+          @click="handleMovieClick(movie.id)"
+          @keydown.space.enter.prevent="handleMovieClick(movie.id)"
         />
       </template>
     </section>
@@ -28,6 +30,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 import type { MovieCard as TMovieCard } from '@/modules/movie'
 import { MovieService } from '@/services/api/movie'
@@ -41,9 +44,18 @@ export default defineComponent({
   name: 'MovieCollection',
   components: { Container, Heading, Text, MovieCard, MovieCardSkeleton },
   setup() {
+    const { push } = useRouter()
+
     const movies = ref<TMovieCard[]>([])
     const isFetchingMovie = ref(true)
     const isFetchFailed = ref(false)
+
+    function handleMovieClick(movieId: string) {
+      push({
+        name: 'MovieDetail',
+        params: { id: movieId },
+      })
+    }
 
     async function getMovies() {
       isFetchFailed.value = false
@@ -64,6 +76,7 @@ export default defineComponent({
       movies,
       isFetchingMovie,
       isFetchFailed,
+      handleMovieClick,
     }
   },
 })
