@@ -29,12 +29,17 @@
       </Text>
     </main>
 
-    <MovieReviews />
+    <Suspense>
+      <MovieReviews :movieId="movieId" />
+
+      <template #fallback> Loading... </template>
+    </Suspense>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useRoute } from 'vue-router'
 
 import { usePageTitle } from '@/hooks/page-title'
 import { EThemeColors } from '@/services/theme'
@@ -50,10 +55,13 @@ export default defineComponent({
   components: { Heading, Text, IconHeart, MovieInfo, MovieReviews },
   setup() {
     const { setTitle } = usePageTitle()
+    const { params } = useRoute()
+
+    const movieId = params.id
 
     setTitle('Movie') // TODO: add movie name
 
-    return { EThemeColors }
+    return { movieId, EThemeColors }
   },
 })
 </script>
@@ -61,17 +69,17 @@ export default defineComponent({
 <style lang="scss" scoped>
 .MovieDetail {
   $poster-height: 400px;
+  $space-before-poster: 24px;
 
   position: relative;
   max-width: 768px;
   margin: 0 auto;
-  padding: 0 24px 72px;
-  border-radius: $border-radius-m;
+  padding: $space-before-poster 24px 72px;
   overflow: hidden;
 
   &__poster {
     position: absolute;
-    top: 0;
+    top: $space-before-poster;
     left: 0;
     height: $poster-height;
     width: 100%;
@@ -80,6 +88,7 @@ export default defineComponent({
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: $border-radius-m;
     }
 
     &::before {
