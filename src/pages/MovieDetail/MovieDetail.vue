@@ -29,45 +29,7 @@
       </Text>
     </main>
 
-    <section>
-      <Heading class="MovieDetail__reviews-heading" level="3">Critic Reviews</Heading>
-
-      <ul class="MovieDetail__reviews">
-        <li class="MovieDetail__review">
-          <Heading level="4">
-            <IconHeart size="30" :color="EThemeColors.geraldine" />
-            21%
-          </Heading>
-
-          <Text>
-            With all the rampant think pieces questioning the probability of every science fiction
-            film that comes out, it's comforting to across a movie that doesn't really claim to have
-            any of the answers.
-          </Text>
-
-          <Heading level="5">
-            Nicolas Emkis
-            <br />
-            <span>from <i>New York Times</i></span>
-          </Heading>
-        </li>
-
-        <li class="MovieDetail__review">
-          <Heading level="4">
-            <IconHeart size="30" :color="EThemeColors.geraldine" />
-            86%
-          </Heading>
-
-          <Text> Lorem ipsum dolor sit amet consectetur adipisicing elit. </Text>
-
-          <Heading level="5">
-            Nicolas Emkis
-            <br />
-            <span>from <i>New York Times</i></span>
-          </Heading>
-        </li>
-      </ul>
-    </section>
+    <MovieReviews />
   </div>
 </template>
 
@@ -81,10 +43,11 @@ import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
 import { IconHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
+import MovieReviews from './components/MovieReviews.vue'
 
 export default defineComponent({
   name: 'MovieDetail',
-  components: { Heading, Text, IconHeart, MovieInfo },
+  components: { Heading, Text, IconHeart, MovieInfo, MovieReviews },
   setup() {
     const { setTitle } = usePageTitle()
 
@@ -160,48 +123,6 @@ export default defineComponent({
   &__description {
     text-align: left;
     margin: rem(72px 0 120px);
-  }
-
-  &__reviews-heading {
-    margin-bottom: rem(24px);
-  }
-
-  &__reviews {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-
-    @media (min-width: 45em) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  &__review {
-    display: flex;
-    flex-direction: column;
-    min-height: rem(320px);
-    padding: rem(28px);
-    border-radius: $border-radius-m;
-    background: var(--concept-over-background);
-
-    > h4 {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    > p {
-      margin: rem(24px 0);
-    }
-
-    > :last-child {
-      margin-top: auto;
-    }
-
-    > h5 span {
-      font-weight: 700;
-      color: var(--concept-text-secondary);
-    }
   }
 }
 </style>
