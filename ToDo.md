@@ -1,9 +1,9 @@
 # Stuff to do
 
-- [ ] Split `MovieDetail` page into smaller components
-
+- [ ] Change movie ID's to static
 - [ ] Define how `MovieDetail` page will load
 - [ ] Create `MovieDetail` loading layout
+- [ ] Create `MovieDetail` error feedbacks
 - [ ] Add state and fetch stuff to `MovieDetail` page
 - [ ] Get Movie posters
 - [ ] Add Movies posters to `interface` and `static-data`
