@@ -7,7 +7,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-
     "axios": "^0.21.1",
     "core-js": "^3.14.0",
     "lodash-es": "^4.17.21",
@@ -18,8 +17,8 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.4",
-    "@typescript-eslint/eslint-plugin": "^4.26.1",
-    "@typescript-eslint/parser": "^4.26.1",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
     "@vue/cli-plugin-babel": "~4.5.13",
     "@vue/cli-plugin-eslint": "~4.5.13",
     "@vue/cli-plugin-router": "~4.5.13",
@@ -30,7 +29,7 @@
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^7.28.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.10.0",
+    "eslint-plugin-vue": "^7.11.1",
     "node-sass": "^5.0.0",
     "prettier": "^2.3.1",
     "sass-loader": "^10.1.1",
