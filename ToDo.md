@@ -1,6 +1,5 @@
 # Stuff to do
 
-- [ ] Change movie ID's to static
 - [ ] Define how `MovieDetail` page will load
 - [ ] Create `MovieDetail` loading layout
 - [ ] Create `MovieDetail` error feedbacks
@@ -9,7 +8,11 @@
 - [ ] Add Movies posters to `interface` and `static-data`
 
 - [ ] Add task's based on Dan video, (define the behavior goal of this app)
-- [ ] Create fetcher hook based on the Evan You code
-- [ ] Create Figma Cover for app
+- [ ] Create Figma Cover for the app
 - [ ] Create repo README
-- [ ]
+
+
+# To learn
+- [ ] Try axios cache lib
+- [ ] Try to use `Suspense`
+- [ ] Create fetcher hook *(based on the Evan You code)*
