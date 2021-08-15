@@ -11,6 +11,7 @@
     "axios-retry": "^3.1.9",
     "core-js": "^3.15.1",
     "lodash-es": "^4.17.21",
+    "msw": "^0.34.0",
     "normalize.css": "^8.0.1",
     "sass-rem": "^2.0.1",
     "vue": "^3.1.1",
