@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { router } from '@/router'
+import '@/services/service-worker'
 
 import App from '@/App.vue'
 import '@/styles/global/index.scss'
