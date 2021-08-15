@@ -62,7 +62,8 @@ export default defineComponent({
       isFetchingMovie.value = true
 
       try {
-        movies.value = await MovieService.fetchMovieCollection()
+        const moviesResponse = await MovieService.fetchMovieCollection()
+        movies.value = moviesResponse.data
       } catch {
         isFetchFailed.value = true
       } finally {
