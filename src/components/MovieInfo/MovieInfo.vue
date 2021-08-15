@@ -1,11 +1,11 @@
 <template>
   <span class="MovieInfo">
     <Text as="span">{{ year }}</Text>
-    <InfoSpacing />
+    <Text class="MovieInfo__spacer" as="span"> • </Text>
     <Text as="span">{{ categories }}</Text>
 
     <template v-if="hasDuration">
-      <InfoSpacing />
+      <Text class="MovieInfo__spacer" as="span"> • </Text>
       <Text as="span">{{ duration }}</Text>
     </template>
   </span>
@@ -13,13 +13,11 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
-
-import InfoSpacing from './InfoSpacing.vue'
 import { Text } from '@/components/Text'
 
 export default defineComponent({
   name: 'MovieInfo',
-  components: { Text, InfoSpacing },
+  components: { Text },
   props: {
     year: { type: String, required: true },
     category: { type: Array as PropType<string[]>, required: true },
@@ -33,3 +31,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+.MovieInfo__spacer {
+  margin: rem(0 3px);
+}
+</style>
