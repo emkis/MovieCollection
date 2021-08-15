@@ -19,7 +19,7 @@ export default defineComponent({
   name: 'MovieInfo',
   components: { Text },
   props: {
-    year: { type: String, required: true },
+    year: { type: Number, required: true },
     category: { type: Array as PropType<string[]>, required: true },
     duration: { type: String, required: false },
   },
