@@ -23,7 +23,8 @@ export default defineComponent({
     movieId: { type: String, required: true },
   },
   async setup(props) {
-    const reviews = await MovieService.fetchMovieReviews(props.movieId)
+    const reviewsResponse = await MovieService.fetchMovieReviews(props.movieId)
+    const reviews = reviewsResponse.data
 
     return { reviews }
   },
