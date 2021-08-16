@@ -1,32 +1,32 @@
 <template>
   <div class="MovieDetail">
     <div class="MovieDetail__poster">
-      <img
-        alt="Movie Poster"
-        src="https://whatsondisneyplus.com/wp-content/uploads/2021/02/kingsman-secret-service.jpg"
-      />
+      <Suspense>
+        <Image
+          alt="Movie Poster"
+          src="https://whatsondisneyplus.com/wp-content/uploads/2021/02/kingsman-secret-service.jpg"
+        />
+
+        <template #fallback> Loading hero... </template>
+      </Suspense>
     </div>
 
-    <main class="MovieDetail__presentation">
-      <Heading level="2">{{ 'Kingsman: The Secret Service' }}</Heading>
+    <main class="MovieDetail__presentation" v-if="movie?.id">
+      <Heading level="2">{{ movie.name }}</Heading>
 
       <MovieInfo
         class="MovieDetail__about"
-        year="2018"
-        duration="2h 35min"
-        :category="['Action', 'Comedy']"
+        :year="movie.year"
+        :duration="movie.duration"
+        :category="movie.category"
       />
 
       <Text class="MovieDetail__rating">
         <IconHeart size="30" :color="EThemeColors.geraldine" :key="heart" v-for="heart in 4" />
-        <Text as="strong">{{ '79' }}%</Text>
+        <Text as="strong">{{ movie.score }}%</Text>
       </Text>
 
-      <Text class="MovieDetail__description">
-        In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet
-        uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on
-        plans to save mankind by transporting Earth's population to a new home via a wormhole.
-      </Text>
+      <Text class="MovieDetail__description">{{ movie.description }}</Text>
     </main>
 
     <Suspense>
@@ -38,30 +38,41 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { usePageTitle } from '@/hooks/page-title'
 import { EThemeColors } from '@/services/theme'
+import { MovieService } from '@/services/api/movie'
+import type { MovieDetail } from '@/modules/movie'
 
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
+import { Image } from '@/components/Image'
 import { IconHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
 import MovieReviews from './components/MovieReviews.vue'
 
 export default defineComponent({
   name: 'MovieDetail',
-  components: { Heading, Text, IconHeart, MovieInfo, MovieReviews },
+  components: { Heading, Text, Image, IconHeart, MovieInfo, MovieReviews },
   setup() {
     const { setTitle } = usePageTitle()
     const { params } = useRoute()
+    const movie = ref<MovieDetail>()
 
-    const movieId = params.id
+    const movieId = params.id as string
 
-    setTitle('Movie') // TODO: add movie name
+    async function useMovieDetails() {
+      const movieDetailResponse = await MovieService.fetchMovieDetails(movieId)
+      movie.value = movieDetailResponse.data
 
-    return { movieId, EThemeColors }
+      setTitle(movie.value.name)
+    }
+
+    useMovieDetails()
+
+    return { movieId, movie, EThemeColors }
   },
 })
 </script>
