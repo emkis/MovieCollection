@@ -16,8 +16,4 @@ export interface MovieReview {
   authorCompany: string
 }
 
-export type MovieCard = Pick<MovieDetail, 'id' | 'name' | 'category' | 'score' | 'year'>
-
-export type FullMovieData = MovieDetail & {
-  reviews: MovieReview[]
-}
+export type Movie = Pick<MovieDetail, 'id' | 'name' | 'category' | 'score' | 'year'>

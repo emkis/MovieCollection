@@ -1,7 +1,11 @@
-import type { FullMovieData } from '@/modules/movie/types'
+import type { MovieDetail, MovieReview } from '@/modules/movie/types'
 import { uuid } from '@/utilities'
 
-export const movies: FullMovieData[] = [
+type MovieComplete = MovieDetail & {
+  reviews: MovieReview[]
+}
+
+export const movies: MovieComplete[] = [
   {
     id: 'zmr-tag-uhu',
     name: 'Interstellar',
