@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue'
 
-import type { MovieCard } from '@/modules/movie/types'
+import type { Movie } from '@/modules/movie/types'
 import { EThemeColors } from '@/services/theme'
 
 import { Heading } from '@/components/Heading'
@@ -26,7 +26,7 @@ export default defineComponent({
   name: 'MovieCard',
   props: {
     loading: { type: Boolean, default: false },
-    movie: { type: Object as PropType<MovieCard>, required: true },
+    movie: { type: Object as PropType<Movie>, required: true },
   },
   components: { Heading, Text, MovieInfo },
   setup(props) {

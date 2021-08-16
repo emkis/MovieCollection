@@ -32,7 +32,7 @@
 import { defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import type { MovieCard as TMovieCard } from '@/modules/movie'
+import type { Movie } from '@/modules/movie'
 import { MovieService } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
@@ -46,7 +46,7 @@ export default defineComponent({
   setup() {
     const { push } = useRouter()
 
-    const movies = ref<TMovieCard[]>([])
+    const movies = ref<Movie[]>([])
     const isFetchingMovie = ref(true)
     const isFetchFailed = ref(false)
 
