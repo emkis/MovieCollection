@@ -12,7 +12,7 @@ function createMovieService(httpClient = ApiService) {
     },
 
     async fetchMovieDetails(movieId: string) {
-      return httpClient.get<MovieDetail[]>(`/movie-detail/${movieId}`)
+      return httpClient.get<MovieDetail>(`/movie-detail/${movieId}`)
     },
   }
 }
