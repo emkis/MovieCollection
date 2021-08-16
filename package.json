@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "axios-cache-adapter": "^2.7.3",
     "axios-retry": "^3.1.9",
     "core-js": "^3.15.1",
     "lodash-es": "^4.17.21",
