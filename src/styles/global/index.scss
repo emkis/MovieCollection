@@ -1,6 +1,6 @@
 @import "/node_modules/modern-normalize/modern-normalize.css";
 @import 'default';
-@import '../themes/index.scss';
+@import '../theme/index.scss';
 
 :root {
   @include colors;
