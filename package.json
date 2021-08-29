@@ -4,7 +4,8 @@
   "scripts": {
     "start": "vite --port 8080",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "prettier --write src"
   },
   "dependencies": {
     "axios": "^0.21.1",
