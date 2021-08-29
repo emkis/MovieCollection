@@ -4,23 +4,23 @@
   </button>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { ThemeType, EThemes } from './types'
+<script lang="ts" setup>
+import { defineProps, defineEmits, withDefaults } from 'vue'
+import { EButtonTheme } from './types'
 
-export default defineComponent({
-  name: 'Button',
-  props: {
-    theme: { type: String as PropType<ThemeType>, default: EThemes.Default },
-    disabled: { type: Boolean, default: false },
-  },
-  emits: ['onClick'],
-  setup(props, { emit }) {
-    const handleClick = () => !props.disabled && emit('onClick')
+interface ButtonProps {
+  theme?: EButtonTheme
+  disabled?: boolean
+}
 
-    return { handleClick }
-  },
+const props = withDefaults(defineProps<ButtonProps>(), {
+  theme: EButtonTheme.Default,
+  disabled: false,
 })
+
+const emit = defineEmits(['onClick'])
+
+const handleClick = () => !props.disabled && emit('onClick')
 </script>
 
 <style lang="scss" scoped>
