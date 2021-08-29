@@ -2,9 +2,9 @@
   "name": "movie-collection",
   "version": "1.0.0",
   "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "start": "vite --port 8080",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -22,21 +22,18 @@
     "@types/lodash-es": "^4.17.4",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
-    "@vue/cli-plugin-babel": "~4.5.13",
-    "@vue/cli-plugin-eslint": "~4.5.13",
-    "@vue/cli-plugin-router": "~4.5.13",
-    "@vue/cli-plugin-typescript": "~4.5.13",
-    "@vue/cli-service": "~4.5.13",
+    "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.2.6",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-vue": "^7.17.0",
-    "node-sass": "^5.0.0",
     "prettier": "^2.3.2",
-    "sass-loader": "^10.1.1",
-    "typescript": "^4.3.4"
+    "sass": "^1.38.2",
+    "typescript": "^4.3.4",
+    "vite": "^2.5.1",
+    "vue-tsc": "^0.2.2"
   },
   "msw": {
     "workerDirectory": "public"
