@@ -1,5 +1,6 @@
 export interface MovieDetail {
   id: string
+  slug: string
   name: string
   description: string
   category: string[]
@@ -16,4 +17,4 @@ export interface MovieReview {
   authorCompany: string
 }
 
-export type Movie = Pick<MovieDetail, 'id' | 'name' | 'category' | 'score' | 'year'>
+export type Movie = Pick<MovieDetail, 'id' | 'slug' | 'name' | 'category' | 'score' | 'year'>
