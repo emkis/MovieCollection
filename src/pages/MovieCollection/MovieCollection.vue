@@ -20,8 +20,8 @@
           :movie="movie"
           :key="movie.id"
           v-for="movie in movies"
-          @click="handleMovieClick(movie.id)"
-          @keydown.space.enter.prevent="handleMovieClick(movie.id)"
+          @click="handleMovieClick(movie.slug)"
+          @keydown.space.enter.prevent="handleMovieClick(movie.slug)"
         />
       </template>
     </section>
@@ -50,10 +50,10 @@ export default defineComponent({
     const isFetchingMovie = ref(true)
     const isFetchFailed = ref(false)
 
-    function handleMovieClick(movieId: string) {
+    function handleMovieClick(movieSlug: string) {
       push({
         name: 'MovieDetail',
-        params: { id: movieId },
+        params: { slug: movieSlug },
       })
     }
 
@@ -62,7 +62,7 @@ export default defineComponent({
       isFetchingMovie.value = true
 
       try {
-        const moviesResponse = await MovieService.fetchMovieCollection()
+        const moviesResponse = await MovieService.fetchMovies()
         movies.value = moviesResponse.data
       } catch {
         isFetchFailed.value = true

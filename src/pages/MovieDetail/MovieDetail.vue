@@ -61,7 +61,7 @@ export default defineComponent({
     const { params } = useRoute()
     const movie = ref<MovieDetail>()
 
-    const movieId = params.id as string
+    const movieId = params.slug as string
 
     async function useMovieDetails() {
       const movieDetailResponse = await MovieService.fetchMovieDetails(movieId)

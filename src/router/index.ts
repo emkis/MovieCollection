@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
     component: MovieCollection,
   },
   {
-    path: '/movie/:id',
+    path: '/movie/:slug',
     name: 'MovieDetail',
     component: MovieDetailLazy,
   },

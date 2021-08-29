@@ -8,11 +8,11 @@ import type { Movie, MovieDetail, MovieReview } from '@/modules/movie'
 const { apiUrl } = environment
 const defaultDelay = 1800
 
-function getMovieById(targetMovieId: string) {
-  const movie = movies.find((movie) => movie.id === targetMovieId)
+function getMovieBySlug(movieSlug: string) {
+  const movie = movies.find((movie) => movie.slug === movieSlug)
 
   if (!movie) {
-    throw new Error(`Movie id:"${targetMovieId}" not exists`)
+    throw new Error(`Movie slug:"${movieSlug}" not found`)
   }
 
   return movie
@@ -21,22 +21,22 @@ function getMovieById(targetMovieId: string) {
 export const handlers: RestHandler[] = [
   rest.get<never, Movie[]>(`${apiUrl}/movies`, (request, response, context) => {
     const parsedMovies = movies.map((movie) => {
-      return pick(movie, 'id', 'name', 'category', 'score', 'year')
+      return pick(movie, 'id', 'slug', 'name', 'category', 'score', 'year')
     })
 
     return response(context.status(200), context.delay(defaultDelay), context.json(parsedMovies))
   }),
 
-  rest.get<never, MovieReview[]>(`${apiUrl}/movie-review/:id`, (request, response, context) => {
-    const { id: movieId } = request.params
-    const movie = getMovieById(movieId)
+  rest.get<never, MovieReview[]>(`${apiUrl}/movie-review/:slug`, (request, response, context) => {
+    const { slug } = request.params
+    const movie = getMovieBySlug(slug)
 
     return response(context.status(200), context.delay(defaultDelay), context.json(movie.reviews))
   }),
 
-  rest.get<never, MovieDetail>(`${apiUrl}/movie-detail/:id`, (request, response, context) => {
-    const { id: movieId } = request.params
-    const movie = getMovieById(movieId)
+  rest.get<never, MovieDetail>(`${apiUrl}/movie-detail/:slug`, (request, response, context) => {
+    const { slug } = request.params
+    const movie = getMovieBySlug(slug)
     const movieDetails = omit(movie, ['reviews'])
 
     return response(context.status(200), context.delay(defaultDelay), context.json(movieDetails))
