@@ -16,7 +16,7 @@ export default defineComponent({
 .Container {
   padding: rem(72px 15px);
 
-  @media (min-width: 43.75em) {
+  @media (min-width: 43.75em) /* 700px */ {
     padding: rem(120px 24px);
   }
 }

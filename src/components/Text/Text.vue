@@ -22,7 +22,7 @@ export default defineComponent({
   font-weight: 400;
   color: var(--concept-text-secondary);
 
-  @media (min-width: 43.75em) {
+  @media (min-width: 43.75em) /* 700px */ {
     font-size: rem(20px);
   }
 }

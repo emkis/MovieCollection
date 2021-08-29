@@ -47,7 +47,7 @@ export default defineComponent({
     font-size: rem(16px);
   }
 
-  @media (min-width: 43.75em) {
+  @media (min-width: 43.75em) /* 700px */ {
     &--level-1 {
       font-size: rem(64px);
     }

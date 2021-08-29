@@ -62,7 +62,7 @@ const handleClick = () => !props.disabled && emit('onClick')
     background: var(--concept-error-color);
   }
 
-  @media (min-width: 43.75em) {
+  @media (min-width: 43.75em) /* 700px */ {
     font-size: rem(20px);
   }
 }
