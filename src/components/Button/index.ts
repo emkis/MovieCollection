@@ -1,2 +1,2 @@
-export { EThemes } from './types'
+export { EButtonTheme } from './types'
 export { default as Button } from './Button.vue'
