@@ -37,7 +37,7 @@ body {
 #app {
   min-height: 100%;
   font-family: $font-body;
-  line-height: $line-height-body;
+  line-height: $font-body-height;
   font-weight: 400;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -52,9 +52,9 @@ h3,
 h4,
 h5 {
   margin: 0;
-  font-family: $font-title;
+  font-family: $font-heading;
   font-weight: 700;
-  line-height: $line-height-title;
+  line-height: $font-heading-height;
   letter-spacing: -0.64px;
   color: var(--concept-text-primary);
 }
