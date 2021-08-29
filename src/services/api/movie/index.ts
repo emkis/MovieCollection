@@ -3,7 +3,7 @@ import { ApiService } from '@/services/api'
 
 function createMovieService(httpClient = ApiService) {
   return {
-    async fetchMovieCollection() {
+    async fetchMovies() {
       return httpClient.get<Movie[]>('/movies')
     },
 
