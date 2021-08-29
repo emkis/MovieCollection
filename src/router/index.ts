@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 export const router = createRouter({
-  history: createWebHistory(environment.appUrl),
+  history: createWebHistory(environment.baseUrl),
   routes,
 })
 
