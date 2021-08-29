@@ -63,7 +63,7 @@ h5 {
  Remove animations and transitions
  @see https://hankchizljaw.com/wrote/a-modern-css-reset/
  *******************/
- @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
