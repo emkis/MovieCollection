@@ -1,6 +1,9 @@
 <template>
   <Container class="MovieCollection">
-    <Heading level="1">Movie Collection 🍿</Heading>
+    <Heading class="MovieCollection__title" level="1">
+      Movie Collection
+      <img :src="popcornEmojiPath" />
+    </Heading>
 
     <Text class="MovieCollection__description">
       An awesome movie collection with some nice user interface interactions
@@ -39,6 +42,7 @@ import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
 import { MovieCard, MovieCardSkeleton } from './components/MovieCard'
+import popcornEmoji from './popcorn-emoji.svg'
 
 export default defineComponent({
   name: 'MovieCollection',
@@ -78,6 +82,7 @@ export default defineComponent({
       isFetchingMovie,
       isFetchFailed,
       handleMovieClick,
+      popcornEmojiPath: popcornEmoji,
     }
   },
 })
@@ -89,6 +94,18 @@ export default defineComponent({
   max-width: rem(768px);
   text-align: center;
 
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > img {
+      display: inline-block;
+      max-width: rem(40px);
+      margin-left: 16px;
+    }
+  }
+
   &__description {
     margin: rem(24px auto 72px);
     max-width: rem(450px);
@@ -96,6 +113,12 @@ export default defineComponent({
 
   &__movies > :not(:last-child) {
     margin-bottom: rem(24px);
+  }
+
+  @media (min-width: $breakpoint-m) {
+    &__title > img {
+      max-width: rem(60px);
+    }
   }
 }
 </style>
