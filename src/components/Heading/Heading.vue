@@ -4,22 +4,16 @@
   </component>
 </template>
 
-<script lang="ts">
-import type { PropType } from 'vue'
+<script lang="ts" setup>
+import { defineProps, computed } from 'vue'
 import type { HeadingLevel } from './types'
 
-import { defineComponent, computed } from 'vue'
+interface HeadingProps {
+  level: HeadingLevel
+}
 
-export default defineComponent({
-  name: 'Heading',
-  props: {
-    level: { type: String as PropType<HeadingLevel>, required: true },
-  },
-  setup(props) {
-    const computedAs = computed(() => `h${props.level}`)
-    return { computedAs }
-  },
-})
+const props = defineProps<HeadingProps>()
+const computedAs = computed(() => `h${props.level}`)
 </script>
 
 <style lang="scss" scoped>
