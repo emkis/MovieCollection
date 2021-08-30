@@ -41,7 +41,7 @@ const computedAs = computed(() => `h${props.level}`)
     font-size: rem(16px);
   }
 
-  @media (min-width: 43.75em) /* 700px */ {
+  @media (min-width: $breakpoint-m) {
     &--level-1 {
       font-size: rem(64px);
     }
