@@ -2,7 +2,7 @@
   <Container class="MovieCollection">
     <Heading class="MovieCollection__title" level="1">
       Movie Collection
-      <img :src="popcornEmojiPath" />
+      <img :src="popcornEmoji" />
     </Heading>
 
     <Text class="MovieCollection__description">
@@ -31,8 +31,8 @@
   </Container>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import type { Movie } from '@/modules/movie'
@@ -44,48 +44,34 @@ import { Text } from '@/components/Text'
 import { MovieCard, MovieCardSkeleton } from './components/MovieCard'
 import popcornEmoji from './popcorn-emoji.svg'
 
-export default defineComponent({
-  name: 'MovieCollection',
-  components: { Container, Heading, Text, MovieCard, MovieCardSkeleton },
-  setup() {
-    const { push } = useRouter()
+const { push } = useRouter()
 
-    const movies = ref<Movie[]>([])
-    const isFetchingMovie = ref(true)
-    const isFetchFailed = ref(false)
+const movies = ref<Movie[]>([])
+const isFetchingMovie = ref(true)
+const isFetchFailed = ref(false)
 
-    function handleMovieClick(movieSlug: string) {
-      push({
-        name: 'MovieDetail',
-        params: { slug: movieSlug },
-      })
-    }
+function handleMovieClick(movieSlug: string) {
+  push({
+    name: 'MovieDetail',
+    params: { slug: movieSlug },
+  })
+}
 
-    async function getMovies() {
-      isFetchFailed.value = false
-      isFetchingMovie.value = true
+async function getMovies() {
+  isFetchFailed.value = false
+  isFetchingMovie.value = true
 
-      try {
-        const moviesResponse = await MovieService.fetchMovies()
-        movies.value = moviesResponse.data
-      } catch {
-        isFetchFailed.value = true
-      } finally {
-        isFetchingMovie.value = false
-      }
-    }
+  try {
+    const moviesResponse = await MovieService.fetchMovies()
+    movies.value = moviesResponse.data
+  } catch {
+    isFetchFailed.value = true
+  } finally {
+    isFetchingMovie.value = false
+  }
+}
 
-    getMovies()
-
-    return {
-      movies,
-      isFetchingMovie,
-      isFetchFailed,
-      handleMovieClick,
-      popcornEmojiPath: popcornEmoji,
-    }
-  },
-})
+getMovies()
 </script>
 
 <style lang="scss" scoped>
