@@ -1,6 +1,7 @@
 export interface MovieDetail {
   id: string
   slug: string
+  poster: string
   name: string
   description: string
   category: string[]
