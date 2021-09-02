@@ -1,17 +1,14 @@
 <template>
-  <div class="MovieDetail">
+  <div class="MovieDetail" v-if="movie?.id">
     <div class="MovieDetail__poster">
       <Suspense>
-        <Image
-          alt="Movie Poster"
-          src="https://whatsondisneyplus.com/wp-content/uploads/2021/02/kingsman-secret-service.jpg"
-        />
+        <Image alt="Movie Poster" :src="movie.poster" />
 
         <template #fallback> Loading hero... </template>
       </Suspense>
     </div>
 
-    <main class="MovieDetail__presentation" v-if="movie?.id">
+    <main class="MovieDetail__presentation">
       <Heading level="2">{{ movie.name }}</Heading>
 
       <MovieInfo
