@@ -77,17 +77,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .MovieDetail {
   $poster-height: 400px;
-  $space-before-poster: 24px;
 
-  position: relative;
   max-width: 768px;
   margin: 0 auto;
-  padding: $space-before-poster 24px 72px;
-  overflow: hidden;
+  padding: 0 24px 72px;
 
   &__poster {
     position: absolute;
-    top: $space-before-poster;
+    top: 0;
     left: 0;
     height: $poster-height;
     width: 100%;
@@ -96,7 +93,6 @@ export default defineComponent({
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: $border-radius-m;
     }
 
     &::before {
