@@ -18,12 +18,8 @@
   </svg>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { iconDefaultProps } from './defaultProps'
+<script lang="ts" setup>
+import { iconDefaultProps } from './icon-default-props'
 
-export default defineComponent({
-  name: 'IconArrowLeft',
-  props: { ...iconDefaultProps },
-})
+const props = defineProps({ ...iconDefaultProps })
 </script>

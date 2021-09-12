@@ -31,12 +31,8 @@
   </svg>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { iconDefaultProps } from './defaultProps'
+<script lang="ts" setup>
+import { iconDefaultProps } from './icon-default-props'
 
-export default defineComponent({
-  name: 'IconPopcorn',
-  props: { size: iconDefaultProps.size },
-})
+const props = defineProps({ ...iconDefaultProps })
 </script>
