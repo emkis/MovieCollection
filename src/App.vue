@@ -1,11 +1,21 @@
 <template>
-  <RouterView :key="$route.fullPath" />
+  <Transition name="fade" mode="out-in">
+    <RouterView :key="$route.fullPath" />
+  </Transition>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup></script>
 
-export default defineComponent({
-  name: 'App',
-})
-</script>
+<style lang="scss" scoped>
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 500ms;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+</style>
