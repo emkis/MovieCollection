@@ -1,17 +1,11 @@
 <template>
-  <div class="MovieCardSkeleton">
-    <div class="MovieCardSkeleton__inner-square" :key="square" v-for="square in 3" />
+  <div class="MovieCardLoader">
+    <div class="MovieCardLoader__inner-square" :key="square" v-for="square in 3" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({ name: 'MovieCardSkeleton' })
-</script>
-
 <style lang="scss" scoped>
-.MovieCardSkeleton {
+.MovieCardLoader {
   $square-height: rem(22px);
   $gutter: rem(21px);
 
@@ -54,6 +48,16 @@ export default defineComponent({ name: 'MovieCardSkeleton' })
 
   to {
     opacity: 1;
+  }
+}
+
+.heart-pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes heart-pulse {
+  10% {
+    transform: scale(1.2);
   }
 }
 </style>
