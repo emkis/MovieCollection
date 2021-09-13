@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, withDefaults } from 'vue'
+import { withDefaults } from 'vue'
 import { EButtonTheme } from './types'
 
-interface ButtonProps {
+type ButtonProps = {
   theme?: EButtonTheme
   disabled?: boolean
 }

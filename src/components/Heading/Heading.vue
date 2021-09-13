@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 import type { HeadingLevel } from './types'
 
-interface HeadingProps {
+type HeadingProps = {
   level: HeadingLevel
 }
 
