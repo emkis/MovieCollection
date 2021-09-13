@@ -1,9 +1,7 @@
 <template>
   <div class="MovieCard">
     <Heading level="3">{{ movie.name }}</Heading>
-
     <MovieInfo :year="movie.year" :category="movie.category" />
-
     <div class="MovieCard__rating">
       <Component :is="RatingIcon" size="30" :color="EThemeColors.geraldine" />
       <Text as="strong">{{ movie.score }}%</Text>
@@ -11,30 +9,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed, PropType } from 'vue'
-
-import type { Movie } from '@/modules/movie/types'
+<script lang="ts" setup>
+import { computed } from 'vue'
 import { EThemeColors } from '@/services/theme'
+import type { Movie } from '@/modules/movie/types'
 
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
 
-export default defineComponent({
-  name: 'MovieCard',
-  props: {
-    loading: { type: Boolean, default: false },
-    movie: { type: Object as PropType<Movie>, required: true },
-  },
-  components: { Heading, Text, MovieInfo },
-  setup(props) {
-    const RatingIcon = computed(() => (props.movie.score < 55 ? IconHalfHeart : IconHeart))
+type MovieCardProps = {
+  movie: Movie
+}
 
-    return { RatingIcon, EThemeColors }
-  },
-})
+const props = defineProps<MovieCardProps>()
+const RatingIcon = computed(() => (props.movie.score < 55 ? IconHalfHeart : IconHeart))
 </script>
 
 <style lang="scss" scoped>
