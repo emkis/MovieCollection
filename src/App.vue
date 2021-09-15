@@ -1,7 +1,9 @@
 <template>
-  <Transition name="fade" mode="out-in">
-    <RouterView :key="$route.fullPath" />
-  </Transition>
+  <RouterView :key="$route.fullPath" v-slot="{ Component: RouteComponent }">
+    <Transition name="fade" mode="out-in">
+      <Component :is="RouteComponent" />
+    </Transition>
+  </RouterView>
 </template>
 
 <script lang="ts" setup></script>
