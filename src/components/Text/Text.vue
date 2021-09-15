@@ -8,7 +8,7 @@
 import { withDefaults } from 'vue'
 import { TextType, ETextTypes } from './types'
 
-type TextProps = { as: TextType }
+type TextProps = { as?: TextType }
 
 const props = withDefaults(defineProps<TextProps>(), {
   as: ETextTypes.P,
