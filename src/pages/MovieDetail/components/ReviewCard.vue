@@ -21,7 +21,7 @@
 import { defineComponent, computed, PropType } from 'vue'
 
 import { EThemeColors } from '@/services/theme'
-import { MovieReview, isGoodReviewScore } from '@/modules/movie'
+import { MovieReview, isGoodMovieScore } from '@/modules/movie'
 
 import { Text } from '@/components/Text'
 import { Heading } from '@/components/Heading'
@@ -35,7 +35,7 @@ export default defineComponent({
   },
   setup(props) {
     const HeartIcon = computed(() => {
-      return isGoodReviewScore(props.review.score) ? IconHeart : IconHalfHeart
+      return isGoodMovieScore(props.review.score) ? IconHeart : IconHalfHeart
     })
 
     return { EThemeColors, HeartIcon }
