@@ -34,8 +34,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { usePageTitle } from '@/hooks/page-title'
@@ -50,28 +50,20 @@ import { IconHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
 import MovieReviews from './components/MovieReviews.vue'
 
-export default defineComponent({
-  name: 'MovieDetail',
-  components: { Heading, Text, Image, IconHeart, MovieInfo, MovieReviews },
-  setup() {
-    const { setTitle } = usePageTitle()
-    const { params } = useRoute()
-    const movie = ref<MovieDetail>()
+const { setTitle } = usePageTitle()
+const { params } = useRoute()
+const movie = ref<MovieDetail>()
 
-    const movieId = params.slug as string
+const movieId = params.slug as string
 
-    async function useMovieDetails() {
-      const movieDetailResponse = await MovieService.fetchMovieDetails(movieId)
-      movie.value = movieDetailResponse.data
+async function useMovieDetails() {
+  const movieDetailResponse = await MovieService.fetchMovieDetails(movieId)
+  movie.value = movieDetailResponse.data
 
-      setTitle(movie.value.name)
-    }
+  setTitle(movie.value.name)
+}
 
-    useMovieDetails()
-
-    return { movieId, movie, EThemeColors }
-  },
-})
+useMovieDetails()
 </script>
 
 <style lang="scss" scoped>
