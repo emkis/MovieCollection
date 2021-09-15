@@ -8,27 +8,18 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import { MovieService } from '@/services/api/movie'
 
 import { Heading } from '@/components/Heading'
 import ReviewCard from './ReviewCard.vue'
 import ReviewCardList from './ReviewCardList.vue'
 
-export default defineComponent({
-  name: 'MovieReviews',
-  components: { Heading, ReviewCard, ReviewCardList },
-  props: {
-    movieId: { type: String, required: true },
-  },
-  async setup(props) {
-    const reviewsResponse = await MovieService.fetchMovieReviews(props.movieId)
-    const reviews = reviewsResponse.data
+type MovieReviewProps = { movieId: string }
 
-    return { reviews }
-  },
-})
+const props = defineProps<MovieReviewProps>()
+const reviewsResponse = await MovieService.fetchMovieReviews(props.movieId)
+const reviews = reviewsResponse.data
 </script>
 
 <style lang="scss" scoped>

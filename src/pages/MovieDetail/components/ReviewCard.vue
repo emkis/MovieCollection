@@ -4,9 +4,7 @@
       <Component :is="HeartIcon" size="30" :color="EThemeColors.geraldine" />
       {{ review.score }}%
     </Heading>
-
     <Text>{{ review.comment }}</Text>
-
     <Heading level="5">
       {{ review.author }}
       <br />
@@ -17,9 +15,8 @@
   </li>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed, PropType } from 'vue'
-
+<script lang="ts" setup>
+import { computed } from 'vue'
 import { EThemeColors } from '@/services/theme'
 import { MovieReview, isGoodMovieScore } from '@/modules/movie'
 
@@ -27,19 +24,11 @@ import { Text } from '@/components/Text'
 import { Heading } from '@/components/Heading'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
 
-export default defineComponent({
-  name: 'ReviewCard',
-  components: { Heading, Text },
-  props: {
-    review: { type: Object as PropType<MovieReview>, required: true },
-  },
-  setup(props) {
-    const HeartIcon = computed(() => {
-      return isGoodMovieScore(props.review.score) ? IconHeart : IconHalfHeart
-    })
+type ReviewCardProps = { review: MovieReview }
 
-    return { EThemeColors, HeartIcon }
-  },
+const props = defineProps<ReviewCardProps>()
+const HeartIcon = computed(() => {
+  return isGoodMovieScore(props.review.score) ? IconHeart : IconHalfHeart
 })
 </script>
 
