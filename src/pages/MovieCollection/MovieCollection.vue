@@ -2,7 +2,7 @@
   <Container class="MovieCollection">
     <Heading class="MovieCollection__title" level="1">
       Movie Collection
-      <img :src="popcornEmoji" />
+      <IconPopcorn size="auto" />
     </Heading>
 
     <Text class="MovieCollection__description">
@@ -13,7 +13,7 @@
 
     <section class="MovieCollection__movies">
       <template v-if="isFetchingMovie">
-        <MovieCardSkeleton :key="item" v-for="item in 5" />
+        <MovieCardLoader :key="item" v-for="item in 5" />
       </template>
 
       <template v-else>
@@ -40,9 +40,10 @@ import { MovieService } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
+import { IconPopcorn } from '@/components/Icons'
 import { Text } from '@/components/Text'
-import { MovieCard, MovieCardSkeleton } from './components/MovieCard'
-import popcornEmoji from './popcorn-emoji.svg'
+import { MovieCard } from './components/MovieCard'
+import { MovieCardLoader } from './components/MovieCardLoader'
 
 const { push } = useRouter()
 
@@ -85,8 +86,7 @@ getMovies()
     align-items: center;
     justify-content: center;
 
-    > img {
-      display: inline-block;
+    > svg {
       max-width: rem(40px);
       margin-left: 16px;
     }
@@ -102,7 +102,7 @@ getMovies()
   }
 
   @media (min-width: $breakpoint-m) {
-    &__title > img {
+    &__title > svg {
       max-width: rem(60px);
     }
   }
