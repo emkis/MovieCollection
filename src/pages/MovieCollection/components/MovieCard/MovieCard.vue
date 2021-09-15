@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { EThemeColors } from '@/services/theme'
-import type { Movie } from '@/modules/movie/types'
+import { Movie, isGoodMovieScore } from '@/modules/movie'
 
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
@@ -24,7 +24,7 @@ type MovieCardProps = {
 }
 
 const props = defineProps<MovieCardProps>()
-const RatingIcon = computed(() => (props.movie.score < 55 ? IconHalfHeart : IconHeart))
+const RatingIcon = computed(() => (isGoodMovieScore(props.movie.score) ? IconHeart : IconHalfHeart))
 </script>
 
 <style lang="scss" scoped>
