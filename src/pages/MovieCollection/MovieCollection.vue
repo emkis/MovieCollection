@@ -2,7 +2,7 @@
   <Container class="MovieCollection">
     <Heading class="MovieCollection__title" level="1">
       Movie Collection
-      <IconPopcorn size="auto" />
+      <IconPopcorn size="100%" />
     </Heading>
 
     <Text class="MovieCollection__description">
