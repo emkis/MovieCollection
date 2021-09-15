@@ -11,25 +11,19 @@
   </span>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
+<script lang="ts" setup>
+import { computed } from 'vue'
 import { Text } from '@/components/Text'
 
-export default defineComponent({
-  name: 'MovieInfo',
-  components: { Text },
-  props: {
-    year: { type: Number, required: true },
-    category: { type: Array as PropType<string[]>, required: true },
-    duration: { type: String, required: false },
-  },
-  setup(props) {
-    const hasDuration = computed(() => Boolean(props.duration))
-    const categories = computed(() => props.category.join(', '))
+type MovieInfoProps = {
+  year: number
+  category: string[]
+  duration?: string
+}
 
-    return { categories, hasDuration }
-  },
-})
+const props = defineProps<MovieInfoProps>()
+const hasDuration = computed(() => Boolean(props.duration))
+const categories = computed(() => props.category.join(', '))
 </script>
 
 <style lang="scss" scoped>

@@ -4,15 +4,14 @@
   </component>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { withDefaults } from 'vue'
 import { TextType, ETextTypes } from './types'
-import { defineComponent, PropType } from 'vue'
 
-export default defineComponent({
-  name: 'Text',
-  props: {
-    as: { type: String as PropType<TextType>, default: ETextTypes.P },
-  },
+type TextProps = { as: TextType }
+
+const props = withDefaults(defineProps<TextProps>(), {
+  as: ETextTypes.P,
 })
 </script>
 
