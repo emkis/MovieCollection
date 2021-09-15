@@ -8,10 +8,10 @@
     "lint": "prettier --write src"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "axios-cache-adapter": "^2.7.3",
     "axios-retry": "^3.1.9",
-    "core-js": "^3.17.1",
+    "core-js": "^3.17.3",
     "lodash-es": "^4.17.21",
     "modern-normalize": "^1.1.0",
     "msw": "^0.35.0",
@@ -20,20 +20,20 @@
     "vue-router": "^4.0.11"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.4",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
-    "@vitejs/plugin-vue": "^1.6.0",
-    "@vue/compiler-sfc": "^3.2.7",
+    "@types/lodash-es": "^4.17.5",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "@vitejs/plugin-vue": "^1.6.2",
+    "@vue/compiler-sfc": "^3.2.11",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.17.0",
-    "prettier": "^2.3.2",
-    "sass": "^1.39.0",
-    "typescript": "^4.4.2",
-    "vite": "^2.5.3",
+    "prettier": "^2.4.0",
+    "sass": "^1.41.0",
+    "typescript": "^4.4.3",
+    "vite": "^2.5.7",
     "vue-tsc": "^0.3.0"
   },
   "msw": {
