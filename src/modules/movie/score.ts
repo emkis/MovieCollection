@@ -5,6 +5,7 @@ export function isGoodMovieScore(score: number): boolean {
   return score > AVERAGE_MOVIE_SCORE
 }
 
-export function getMovieScore(score: number): number {
-  return (MAX_HEART_SCORE * score) / 100
+export function getMovieScore(score: number): string {
+  const calculatedScore = (MAX_HEART_SCORE * score) / 100
+  return calculatedScore.toFixed(2)
 }
