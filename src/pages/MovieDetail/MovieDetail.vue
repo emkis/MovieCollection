@@ -19,7 +19,7 @@
       />
 
       <Text class="MovieDetail__rating">
-        <IconHeart size="30" :color="EThemeColors.geraldine" :key="heart" v-for="heart in 4" />
+        <MovieHeartScore :score="movie.score" />
         <Text as="strong">{{ movie.score }}%</Text>
       </Text>
 
@@ -39,15 +39,14 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { usePageTitle } from '@/hooks/use-page-title'
-import { EThemeColors } from '@/services/theme'
 import { MovieService } from '@/services/api/movie'
 import type { MovieDetail } from '@/modules/movie'
 
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
 import { Image } from '@/components/Image'
-import { IconHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
+import { MovieHeartScore } from '@/components/MovieHeartScore'
 import MovieReviews from './components/MovieReviews.vue'
 
 const { setTitle } = usePageTitle()
