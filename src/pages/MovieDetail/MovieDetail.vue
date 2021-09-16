@@ -38,7 +38,7 @@
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { usePageTitle } from '@/hooks/page-title'
+import { usePageTitle } from '@/hooks/use-page-title'
 import { EThemeColors } from '@/services/theme'
 import { MovieService } from '@/services/api/movie'
 import type { MovieDetail } from '@/modules/movie'
