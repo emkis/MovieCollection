@@ -1,9 +1,9 @@
 import { RouteLocationNormalized } from 'vue-router'
-import { usePageTitle } from '@/hooks/page-title'
+import { usePageTitle } from '@/hooks/use-page-title'
 
-export function handlePageTitle(route: RouteLocationNormalized) {
+export function setRouteTitle(route: RouteLocationNormalized) {
   const { setTitle, resetTitle } = usePageTitle()
-  const routeTitleExists = route.meta?.title
+  const routeTitleExists = Boolean(route.meta?.title)
 
   if (routeTitleExists) setTitle(String(route.meta.title))
   else resetTitle()
