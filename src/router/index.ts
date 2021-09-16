@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import type { Component } from 'vue'
 
 import { environment } from '@/configs/environment'
-import { handlePageTitle } from './helpers'
+import { setRouteTitle } from '@/router/route-title'
 
 import { MovieCollection } from '@/pages/MovieCollection'
 
@@ -33,4 +33,4 @@ export const router = createRouter({
   routes,
 })
 
-router.beforeEach(handlePageTitle)
+router.beforeEach(setRouteTitle)
