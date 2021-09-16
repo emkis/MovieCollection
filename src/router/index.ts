@@ -1,14 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import type { Component } from 'vue'
-
 import { environment } from '@/configs/environment'
 import { setRouteTitle } from '@/router/route-title'
 
 import { MovieCollection } from '@/pages/MovieCollection'
-
-export const MovieDetailLazy = (): Promise<Component> => {
-  return import(/* webpackChunkName: "MovieDetail" */ '@/pages/MovieDetail/MovieDetail.vue')
-}
+import { MovieDetailLazy } from '@/router/lazy-routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
