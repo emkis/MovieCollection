@@ -8,6 +8,7 @@ export interface UseFetchHook<T> {
   isIdle: ComputedRef<boolean>
   isError: ComputedRef<boolean>
   isFetching: ComputedRef<boolean>
+  isSuccess: ComputedRef<boolean>
 }
 
 export type UseFetchOptions<D> = {

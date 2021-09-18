@@ -10,6 +10,7 @@ export function useFetch<TData>(
   const isIdle = computed(() => status.value === 'idle')
   const isError = computed(() => status.value === 'error')
   const isFetching = computed(() => status.value === 'fetching')
+  const isSuccess = computed(() => status.value === 'success')
 
   watchEffect(handleFetch)
 
@@ -37,5 +38,6 @@ export function useFetch<TData>(
     isIdle,
     isError,
     isFetching,
+    isSuccess,
   }
 }
