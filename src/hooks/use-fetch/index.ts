@@ -1,4 +1,4 @@
-import { ref, readonly, watchEffect } from 'vue'
+import { ref, readonly, watchEffect, computed } from 'vue'
 import type { FetchStatus, UseFetchHook, UseFetchOptions } from './types'
 
 export function useFetch<TData>(
@@ -7,6 +7,9 @@ export function useFetch<TData>(
 ): UseFetchHook<TData> {
   const data = ref<TData>()
   const status = ref<FetchStatus>('idle')
+  const isIdle = computed(() => status.value === 'idle')
+  const isError = computed(() => status.value === 'error')
+  const isFetching = computed(() => status.value === 'fetching')
 
   watchEffect(async () => {
     try {
@@ -29,5 +32,8 @@ export function useFetch<TData>(
   return {
     data: readonly(data),
     status: readonly(status),
+    isIdle,
+    isError,
+    isFetching,
   }
 }

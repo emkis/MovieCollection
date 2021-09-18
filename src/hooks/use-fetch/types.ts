@@ -1,10 +1,13 @@
-import type { DeepReadonly, Ref } from 'vue'
+import type { DeepReadonly, Ref, ComputedRef } from 'vue'
 
 export type FetchStatus = 'idle' | 'fetching' | 'error' | 'success'
 
 export interface UseFetchHook<T> {
   data: DeepReadonly<Ref<undefined | T>>
   status: DeepReadonly<Ref<FetchStatus>>
+  isIdle: ComputedRef<boolean>
+  isError: ComputedRef<boolean>
+  isFetching: ComputedRef<boolean>
 }
 
 export type UseFetchOptions<D> = {
