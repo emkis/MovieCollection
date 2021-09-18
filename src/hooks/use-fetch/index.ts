@@ -11,7 +11,9 @@ export function useFetch<TData>(
   const isError = computed(() => status.value === 'error')
   const isFetching = computed(() => status.value === 'fetching')
 
-  watchEffect(async () => {
+  watchEffect(handleFetch)
+
+  async function handleFetch() {
     try {
       data.value = undefined
       status.value = 'fetching'
@@ -27,7 +29,7 @@ export function useFetch<TData>(
     } finally {
       options.onSettled?.()
     }
-  })
+  }
 
   return {
     data: readonly(data),
