@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isSuccess" class="MovieDetail">
-    <div class="MovieDetail__poster">
+  <div v-if="isSuccess" class="Movie">
+    <div class="Movie__poster">
       <Suspense>
         <Image alt="Movie Poster" :src="movie.poster" />
 
@@ -8,19 +8,19 @@
       </Suspense>
     </div>
 
-    <main class="MovieDetail__presentation">
+    <main class="Movie__presentation">
       <Heading level="2">{{ movie.name }}</Heading>
       <MovieInfo
-        class="MovieDetail__about"
+        class="Movie__about"
         :year="movie.year"
         :duration="movie.duration"
         :category="movie.category"
       />
-      <Text class="MovieDetail__rating">
+      <Text class="Movie__rating">
         <MovieHeartScore :score="movie.score" />
         <Text as="strong">{{ movie.score }}%</Text>
       </Text>
-      <Text class="MovieDetail__description">{{ movie.description }}</Text>
+      <Text class="Movie__description">{{ movie.description }}</Text>
     </main>
 
     <Suspense>
@@ -54,7 +54,7 @@ watch(movie, () => isSuccess && setMovieNameOnPage())
 </script>
 
 <style lang="scss" scoped>
-.MovieDetail {
+.Movie {
   $poster-height: 400px;
 
   max-width: 768px;
