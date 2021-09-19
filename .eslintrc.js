@@ -5,8 +5,10 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'plugin:vue/vue3-essential',
+    'plugin:vue/base',
     'eslint:recommended',
+    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
     '@vue/typescript/recommended',
     '@vue/prettier',
     '@vue/prettier/@typescript-eslint',
@@ -22,8 +24,17 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/valid-define-props': 'error',
+    'vue/valid-define-emits': 'error',
   },
   overrides: [
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+      },
+    },
     {
       files: ['**/*.test.{j,t}s'],
       env: {
