@@ -47,10 +47,11 @@ import MovieReviews from './components/MovieReviews.vue'
 const { params } = useRoute()
 const { setTitle } = usePageTitle()
 const movieSlug = params.slug as string
-const { movieDetails: movie, isSuccess } = useMovieDetails(movieSlug)
+const movieDetailsFetch = useMovieDetails(movieSlug)
+const movie = movieDetailsFetch.movieDetails
 const setMovieNameOnPage = () => setTitle(movie.value!.name)
 
-watch(movie, () => isSuccess && setMovieNameOnPage())
+watch(movie, () => movieDetailsFetch.isSuccess && setMovieNameOnPage())
 </script>
 
 <style lang="scss" scoped>
