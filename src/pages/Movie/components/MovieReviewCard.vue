@@ -37,7 +37,7 @@ const HeartIcon = computed(() => {
   display: flex;
   flex-direction: column;
   min-height: rem(320px);
-  padding: rem(28px);
+  padding: rem(24px);
   border-radius: $border-radius-m;
   background: var(--concept-over-background);
 
