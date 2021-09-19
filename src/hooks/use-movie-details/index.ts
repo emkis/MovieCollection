@@ -9,7 +9,7 @@ export function useMovieDetails(movieSlug: string): UseMovieDetailsHook {
   const movieDetails = ref<MovieDetail | null>(null)
   const fetcher = () => MovieService.fetchMovieDetails(movieSlug)
 
-  const { isError, isFetching, isSuccess } = useFetch<DetailsResponse>(fetcher, {
+  const { isError, isFetching, isSuccess, refetch } = useFetch<DetailsResponse>(fetcher, {
     onSuccess: (response) => (movieDetails.value = response.data),
   })
 
@@ -18,5 +18,6 @@ export function useMovieDetails(movieSlug: string): UseMovieDetailsHook {
     isError,
     isSuccess,
     isFetching,
+    refetch,
   }
 }

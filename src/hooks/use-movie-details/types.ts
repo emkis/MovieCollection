@@ -6,6 +6,7 @@ export type DetailsResponse = AxiosResponse<MovieDetail>
 
 export interface UseMovieDetailsHook {
   movieDetails: DeepReadonly<Ref<MovieDetail | null>>
+  refetch: () => void
   isError: ComputedRef<boolean>
   isSuccess: ComputedRef<boolean>
   isFetching: ComputedRef<boolean>
