@@ -25,16 +25,21 @@ export function useFetch<TData>(
       status.value = 'success'
       options.onSuccess?.(response)
     } catch (error) {
-      options.onError?.(error)
       status.value = 'error'
+      options.onError?.(error)
     } finally {
       options.onSettled?.()
     }
   }
 
+  function refetch() {
+    handleFetch()
+  }
+
   return {
     data: readonly(data),
     status: readonly(status),
+    refetch,
     isIdle,
     isError,
     isFetching,

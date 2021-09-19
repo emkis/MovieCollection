@@ -5,6 +5,7 @@ export type FetchStatus = 'idle' | 'fetching' | 'error' | 'success'
 export interface UseFetchHook<T> {
   data: DeepReadonly<Ref<undefined | T>>
   status: DeepReadonly<Ref<FetchStatus>>
+  refetch: () => void
   isIdle: ComputedRef<boolean>
   isError: ComputedRef<boolean>
   isFetching: ComputedRef<boolean>
