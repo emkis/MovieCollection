@@ -41,7 +41,7 @@ import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
 import { Image } from '@/components/Image'
 import { MovieInfo } from '@/components/MovieInfo'
-import { MovieHeartScore } from '@/components/MovieHeartScore'
+import MovieHeartScore from './components/MovieHeartScore.vue'
 import MovieReviews from './components/MovieReviews.vue'
 
 const { params } = useRoute()
