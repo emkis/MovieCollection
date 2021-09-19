@@ -3,7 +3,7 @@
     <Heading class="MovieReviews__heading" level="3">Critic Reviews</Heading>
 
     <ReviewCardList>
-      <ReviewCard :key="review.id" v-for="review in reviews" :review="review" />
+      <ReviewCard v-for="review in reviews" :key="review.id" :review="review" />
     </ReviewCardList>
   </section>
 </template>

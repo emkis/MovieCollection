@@ -2,8 +2,8 @@
   <span class="MovieHeartScore" aria-hidden="true">
     <Component
       :is="Icon"
-      :key="iconIndex"
       v-for="(Icon, iconIndex) in HeartScore"
+      :key="iconIndex"
       :color="EThemeColors.geraldine"
       size="30"
     />

@@ -9,20 +9,20 @@
       An awesome movie collection with some nice user interface interactions
     </Text>
 
-    <Heading level="2" v-if="isFetchFailed">Sorry, something went wrong :(</Heading>
+    <Heading v-if="isFetchFailed" level="2">Sorry, something went wrong :(</Heading>
 
     <section class="MovieCollection__movies">
       <template v-if="isFetchingMovie">
-        <MovieCardLoader :key="item" v-for="item in 5" />
+        <MovieCardLoader v-for="item in 5" :key="item" />
       </template>
 
       <template v-else>
         <MovieCard
+          v-for="movie in movies"
+          :key="movie.id"
           tabindex="0"
           role="button"
           :movie="movie"
-          :key="movie.id"
-          v-for="movie in movies"
           @click="handleMovieClick(movie.slug)"
           @keydown.space.enter.prevent="handleMovieClick(movie.slug)"
         />

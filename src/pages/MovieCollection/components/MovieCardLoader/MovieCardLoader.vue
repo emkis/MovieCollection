@@ -1,6 +1,6 @@
 <template>
   <div class="MovieCardLoader">
-    <div class="MovieCardLoader__inner-square" :key="square" v-for="square in 3" />
+    <div v-for="square in 3" :key="square" class="MovieCardLoader__inner-square" />
   </div>
 </template>
 
