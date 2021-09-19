@@ -1,11 +1,11 @@
 <template>
-  <li class="ReviewCard">
-    <Heading level="4">
+  <li class="MovieReviewCard">
+    <Heading level="4" class="MovieReviewCard__score">
       <Component :is="HeartIcon" size="30" :color="EThemeColors.geraldine" />
       {{ review.score }}%
     </Heading>
-    <Text>{{ review.comment }}</Text>
-    <Heading level="5">
+    <Text class="MovieReviewCard__comment">{{ review.comment }}</Text>
+    <Heading class="MovieReviewCard__author" level="5">
       {{ review.author }}
       <br />
       <span>
@@ -33,7 +33,7 @@ const HeartIcon = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.ReviewCard {
+.MovieReviewCard {
   display: flex;
   flex-direction: column;
   min-height: rem(320px);
@@ -41,23 +41,23 @@ const HeartIcon = computed(() => {
   border-radius: $border-radius-m;
   background: var(--concept-over-background);
 
-  > h4 {
+  &__score {
     display: flex;
     gap: 10px;
     align-items: center;
   }
 
-  > p {
+  &__comment {
     margin: rem(24px 0);
   }
 
-  > :last-child {
+  &__author {
     margin-top: auto;
-  }
 
-  > h5 span {
-    font-weight: 700;
-    color: var(--concept-text-secondary);
+    span {
+      font-weight: 700;
+      color: var(--concept-text-secondary);
+    }
   }
 }
 </style>
