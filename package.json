@@ -6,7 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{vue,ts}\"",
-    "lint:fix": "eslint \"src/**/*.{vue,ts}\" lint --fix"
+    "lint:fix": "eslint \"src/**/*.{vue,ts}\" --fix"
   },
   "dependencies": {
     "axios": "^0.21.4",
