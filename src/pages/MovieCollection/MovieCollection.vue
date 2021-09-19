@@ -52,7 +52,7 @@ const isFetchFailed = ref(false)
 
 function handleMovieClick(movieSlug: string) {
   push({
-    name: 'MovieDetail',
+    name: 'Movie',
     params: { slug: movieSlug },
   })
 }
