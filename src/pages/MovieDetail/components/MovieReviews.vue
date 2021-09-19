@@ -15,10 +15,10 @@ import { Heading } from '@/components/Heading'
 import ReviewCard from './ReviewCard.vue'
 import ReviewCardList from './ReviewCardList.vue'
 
-type MovieReviewProps = { movieId: string }
+type MovieReviewProps = { movieSlug: string }
 
 const props = defineProps<MovieReviewProps>()
-const reviewsResponse = await MovieService.fetchMovieReviews(props.movieId)
+const reviewsResponse = await MovieService.fetchMovieReviews(props.movieSlug)
 const reviews = reviewsResponse.data
 </script>
 
