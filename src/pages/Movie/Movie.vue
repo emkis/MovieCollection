@@ -34,7 +34,7 @@
 <script lang="ts" setup>
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useMovieDetails } from '@/hooks/use-movie-details'
+import { useMovieDetails } from './hooks/use-movie-details'
 import { usePageTitle } from '@/hooks/use-page-title'
 
 import { Heading } from '@/components/Heading'
