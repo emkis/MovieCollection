@@ -2,9 +2,9 @@
   <section class="MovieReviews">
     <Heading class="MovieReviews__heading" level="3">Critic Reviews</Heading>
 
-    <ReviewCardList>
-      <ReviewCard v-for="review in reviews" :key="review.id" :review="review" />
-    </ReviewCardList>
+    <MovieReviewCardList>
+      <MovieReviewCard v-for="review in reviews" :key="review.id" :review="review" />
+    </MovieReviewCardList>
   </section>
 </template>
 
@@ -12,8 +12,8 @@
 import { MovieService } from '@/services/api/movie'
 
 import { Heading } from '@/components/Heading'
-import ReviewCard from './ReviewCard.vue'
-import ReviewCardList from './ReviewCardList.vue'
+import MovieReviewCard from './MovieReviewCard.vue'
+import MovieReviewCardList from './MovieReviewCardList.vue'
 
 type MovieReviewProps = { movieSlug: string }
 
