@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isSuccess" class="Movie">
+  <div v-if="movie?.id" class="Movie">
     <div class="Movie__poster">
       <Suspense>
         <Image alt="Movie Poster" :src="movie.poster" />
