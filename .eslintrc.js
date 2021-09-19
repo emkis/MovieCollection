@@ -5,9 +5,10 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'plugin:vue/base',
     'eslint:recommended',
+    'plugin:vue/base',
     'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-strongly-recommended',
     'plugin:vue/vue3-recommended',
     '@vue/typescript/recommended',
     '@vue/prettier',
