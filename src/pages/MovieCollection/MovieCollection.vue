@@ -13,11 +13,11 @@
 
     <section class="MovieCollection__movies">
       <template v-if="isFetchingMovie">
-        <MovieCardLoader v-for="item in 5" :key="item" />
+        <MovieCollectionCardLoader v-for="item in 5" :key="item" />
       </template>
 
       <template v-else>
-        <MovieCard
+        <MovieCollectionCard
           v-for="movie in movies"
           :key="movie.id"
           tabindex="0"
@@ -41,8 +41,8 @@ import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { IconPopcorn } from '@/components/Icons'
 import { Text } from '@/components/Text'
-import { MovieCard } from './components/MovieCard'
-import { MovieCardLoader } from './components/MovieCardLoader'
+import MovieCollectionCard from './components/MovieCollectionCard.vue'
+import MovieCollectionCardLoader from './components/MovieCollectionCardLoader.vue'
 
 const { push } = useRouter()
 
