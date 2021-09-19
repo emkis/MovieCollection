@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { getMovieScore } from '@/modules/movie'
+import { computed, h } from 'vue'
+import { getMovieScore, MAX_HEART_SCORE } from '@/modules/movie'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
 import { EThemeColors } from '@/services/theme'
 
@@ -21,13 +21,20 @@ type MovieHeartScoreProps = {
 }
 
 const props = defineProps<MovieHeartScoreProps>()
+const IconHeartFaded = h(IconHeart, { style: { opacity: '0.3' } })
 
 const HeartScore = computed(() => {
-  const score = Number(getMovieScore(props.score))
-  const integerScore = Math.trunc(score)
-  const filledHearts = Array(integerScore).fill(IconHeart)
+  const [score, scoreDecimal] = getMovieScore(props.score).split('.')
+  const integerScore = Math.trunc(Number(score))
+  const hasDecimal = Number(scoreDecimal) > 0
 
-  return [...filledHearts, IconHalfHeart]
+  const fadedHearts = Array(MAX_HEART_SCORE).fill(IconHeartFaded)
+  const filledHearts = Array(integerScore).fill(IconHeart)
+  const mergedHearts = hasDecimal
+    ? [...filledHearts, IconHalfHeart, ...fadedHearts]
+    : [...filledHearts, ...fadedHearts]
+
+  return mergedHearts.slice(0, MAX_HEART_SCORE)
 })
 </script>
 
