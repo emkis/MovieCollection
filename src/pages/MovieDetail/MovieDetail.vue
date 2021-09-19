@@ -1,5 +1,5 @@
 <template>
-  <div class="MovieDetail" v-if="movie?.id">
+  <div class="MovieDetail" v-if="isSuccess">
     <div class="MovieDetail__poster">
       <Suspense>
         <Image alt="Movie Poster" :src="movie.poster" />
@@ -10,24 +10,21 @@
 
     <main class="MovieDetail__presentation">
       <Heading level="2">{{ movie.name }}</Heading>
-
       <MovieInfo
         class="MovieDetail__about"
         :year="movie.year"
         :duration="movie.duration"
         :category="movie.category"
       />
-
       <Text class="MovieDetail__rating">
         <MovieHeartScore :score="movie.score" />
         <Text as="strong">{{ movie.score }}%</Text>
       </Text>
-
       <Text class="MovieDetail__description">{{ movie.description }}</Text>
     </main>
 
     <Suspense>
-      <MovieReviews :movieId="movieId" />
+      <MovieReviews :movieSlug="movieSlug" />
 
       <template #fallback> Loading... </template>
     </Suspense>
@@ -35,12 +32,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { watch } from 'vue'
 import { useRoute } from 'vue-router'
-
+import { useMovieDetails } from '@/hooks/use-movie-details'
 import { usePageTitle } from '@/hooks/use-page-title'
-import { MovieService } from '@/services/api/movie'
-import type { MovieDetail } from '@/modules/movie'
 
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
@@ -49,20 +44,13 @@ import { MovieInfo } from '@/components/MovieInfo'
 import { MovieHeartScore } from '@/components/MovieHeartScore'
 import MovieReviews from './components/MovieReviews.vue'
 
-const { setTitle } = usePageTitle()
 const { params } = useRoute()
-const movie = ref<MovieDetail>()
+const { setTitle } = usePageTitle()
+const movieSlug = params.slug as string
+const { movieDetails: movie, isSuccess } = useMovieDetails(movieSlug)
+const setMovieNameOnPage = () => setTitle(movie.value!.name)
 
-const movieId = params.slug as string
-
-async function useMovieDetails() {
-  const movieDetailResponse = await MovieService.fetchMovieDetails(movieId)
-  movie.value = movieDetailResponse.data
-
-  setTitle(movie.value.name)
-}
-
-useMovieDetails()
+watch(movie, () => isSuccess && setMovieNameOnPage())
 </script>
 
 <style lang="scss" scoped>
