@@ -1,8 +1,8 @@
 <template>
-  <div class="MovieCard">
+  <div class="MovieCollectionCard">
     <Heading level="3">{{ movie.name }}</Heading>
     <MovieInfo :year="movie.year" :category="movie.category" />
-    <div class="MovieCard__rating">
+    <div class="MovieCollectionCard__rating">
       <Component :is="RatingIcon" size="30" :color="EThemeColors.geraldine" />
       <Text as="strong">{{ movie.score }}%</Text>
     </div>
@@ -19,16 +19,16 @@ import { Text } from '@/components/Text'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
 
-type MovieCardProps = {
+type MovieCollectionCardProps = {
   movie: Movie
 }
 
-const props = defineProps<MovieCardProps>()
+const props = defineProps<MovieCollectionCardProps>()
 const RatingIcon = computed(() => (isGoodMovieScore(props.movie.score) ? IconHeart : IconHalfHeart))
 </script>
 
 <style lang="scss" scoped>
-.MovieCard {
+.MovieCollectionCard {
   padding: rem(24px);
   background: var(--concept-over-background);
   border-radius: $border-radius-m;

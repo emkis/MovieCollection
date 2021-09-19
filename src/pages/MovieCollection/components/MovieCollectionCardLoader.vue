@@ -1,11 +1,11 @@
 <template>
-  <div class="MovieCardLoader">
-    <div v-for="square in 3" :key="square" class="MovieCardLoader__inner-square" />
+  <div class="MovieCollectionCardLoader">
+    <div v-for="square in 3" :key="square" class="MovieCollectionCardLoader__inner-square" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.MovieCardLoader {
+.MovieCollectionCardLoader {
   $square-height: rem(22px);
   $gutter: rem(21px);
 
