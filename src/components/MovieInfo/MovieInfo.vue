@@ -17,7 +17,7 @@ import { Text } from '@/components/Text'
 
 type MovieInfoProps = {
   year: number
-  category: string[]
+  category: readonly string[]
   duration?: string
 }
 
