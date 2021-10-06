@@ -3,7 +3,7 @@ import { omit, pick } from 'lodash-es'
 
 import { environment } from '@/configs/environment'
 import { movies } from './static-data'
-import type { Movie, MovieDetail, MovieReview } from '@/modules/movie'
+import type { Movie, MovieDetail, MovieReview } from '@/services/api/movie'
 
 const { apiUrl } = environment
 const defaultDelay = 1800

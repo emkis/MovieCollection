@@ -1,5 +1,5 @@
 import { uniqueId, kebabCase } from 'lodash-es'
-import type { MovieDetail, MovieReview } from '@/modules/movie/types'
+import type { MovieDetail, MovieReview } from '@/services/api/movie'
 
 type MovieComplete = MovieDetail & {
   reviews: MovieReview[]

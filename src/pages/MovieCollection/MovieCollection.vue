@@ -34,8 +34,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import type { Movie } from '@/modules/movie'
-import { MovieService } from '@/services/api/movie'
+import { MovieService, Movie } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'

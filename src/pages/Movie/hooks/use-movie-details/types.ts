@@ -1,6 +1,6 @@
 import type { DeepReadonly, Ref, ComputedRef } from 'vue'
 import type { AxiosResponse } from 'axios'
-import type { MovieDetail } from '@/modules/movie'
+import type { MovieDetail } from '@/services/api/movie'
 
 export type DetailsResponse = AxiosResponse<MovieDetail>
 
