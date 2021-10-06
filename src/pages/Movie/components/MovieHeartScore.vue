@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 import { computed, h } from 'vue'
-import { getMovieScore, MAX_HEART_SCORE } from '@/modules/movie'
+import { MovieService, MAX_HEART_SCORE } from '@/services/api/movie'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
 import { EThemeColors } from '@/services/theme'
 
@@ -24,7 +24,7 @@ const props = defineProps<MovieHeartScoreProps>()
 const IconHeartFaded = h(IconHeart, { style: { opacity: '0.3' } })
 
 const HeartScore = computed(() => {
-  const [score, scoreDecimal] = getMovieScore(props.score).split('.')
+  const [score, scoreDecimal] = MovieService.calculateScore(props.score).split('.')
   const integerScore = Math.trunc(Number(score))
   const hasDecimal = Number(scoreDecimal) > 0
 

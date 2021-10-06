@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { EThemeColors } from '@/services/theme'
-import { MovieReview, isGoodMovieScore } from '@/modules/movie'
+import { MovieReview, MovieService } from '@/services/api/movie'
 
 import { Text } from '@/components/Text'
 import { Heading } from '@/components/Heading'
@@ -28,7 +28,7 @@ type ReviewCardProps = { review: MovieReview }
 
 const props = defineProps<ReviewCardProps>()
 const HeartIcon = computed(() => {
-  return isGoodMovieScore(props.review.score) ? IconHeart : IconHalfHeart
+  return MovieService.isScoreOverAverage(props.review.score) ? IconHeart : IconHalfHeart
 })
 </script>
 
