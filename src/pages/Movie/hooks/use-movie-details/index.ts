@@ -1,7 +1,6 @@
-import { ref, readonly } from 'vue'
+import { ref } from 'vue'
 import { useFetch } from '@/hooks/use-fetch'
 import { MovieService, MovieDetail } from '@/services/api/movie'
-
 import type { UseMovieDetailsHook, DetailsResponse } from './types'
 
 export function useMovieDetails(movieSlug: string): UseMovieDetailsHook {
@@ -13,7 +12,7 @@ export function useMovieDetails(movieSlug: string): UseMovieDetailsHook {
   })
 
   return {
-    movieDetails: readonly(movieDetails),
+    movieDetails,
     isError,
     isSuccess,
     isFetching,
