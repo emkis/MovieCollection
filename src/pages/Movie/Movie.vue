@@ -3,7 +3,6 @@
     <div class="Movie__poster">
       <Suspense>
         <Image alt="Movie Poster" :src="movie!.poster" />
-
         <template #fallback> Loading hero... </template>
       </Suspense>
     </div>
@@ -25,7 +24,6 @@
 
     <Suspense>
       <MovieReviews :movieSlug="movieSlug" />
-
       <template #fallback> Loading... </template>
     </Suspense>
   </div>
