@@ -1,26 +1,26 @@
 <template>
-  <div v-if="movie?.id" class="Movie">
+  <div v-if="movieDetailsState.isSuccess.value" class="Movie">
     <div class="Movie__poster">
       <Suspense>
-        <Image alt="Movie Poster" :src="movie.poster" />
+        <Image alt="Movie Poster" :src="movie!.poster" />
 
         <template #fallback> Loading hero... </template>
       </Suspense>
     </div>
 
     <main class="Movie__presentation">
-      <Heading level="2">{{ movie.name }}</Heading>
+      <Heading level="2">{{ movie!.name }}</Heading>
       <MovieInfo
         class="Movie__about"
-        :year="movie.year"
-        :duration="movie.duration"
-        :category="movie.category"
+        :year="movie!.year"
+        :duration="movie!.duration"
+        :category="movie!.category"
       />
       <Text class="Movie__rating">
-        <MovieHeartScore :score="movie.score" />
-        <Text as="strong">{{ movie.score }}%</Text>
+        <MovieHeartScore :score="movie!.score" />
+        <Text as="strong">{{ movie!.score }}%</Text>
       </Text>
-      <Text class="Movie__description">{{ movie.description }}</Text>
+      <Text class="Movie__description">{{ movie!.description }}</Text>
     </main>
 
     <Suspense>
@@ -44,14 +44,14 @@ import { MovieInfo } from '@/components/MovieInfo'
 import MovieHeartScore from './components/MovieHeartScore.vue'
 import MovieReviews from './components/MovieReviews.vue'
 
-const { params } = useRoute()
-const { setTitle } = usePageTitle()
-const movieSlug = params.slug as string
-const movieDetailsFetch = useMovieDetails(movieSlug)
-const movie = movieDetailsFetch.movieDetails
-const setMovieNameOnPage = () => setTitle(movie.value!.name)
+const route = useRoute()
+const movieSlug = route.params.slug as string
+const movieDetailsState = useMovieDetails(movieSlug)
+const movie = movieDetailsState.movieDetails
 
-watch(movie, () => movieDetailsFetch.isSuccess && setMovieNameOnPage())
+const { setTitle } = usePageTitle()
+const setMovieNameOnPage = () => setTitle(movie.value!.name)
+watch(movie, setMovieNameOnPage)
 </script>
 
 <style lang="scss" scoped>
