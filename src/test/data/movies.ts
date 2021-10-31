@@ -1,10 +1,7 @@
 import { uniqueId, kebabCase } from 'lodash-es'
 import type { MovieDetail, MovieReview } from '@/services/api/movie'
 
-type MovieComplete = MovieDetail & {
-  reviews: MovieReview[]
-}
-
+type MovieComplete = MovieDetail & { reviews: MovieReview[] }
 type MovieIdentifier = Pick<MovieDetail, 'id' | 'name' | 'slug'>
 
 const makeMovieIdentifier = (movieName: string): MovieIdentifier => ({
