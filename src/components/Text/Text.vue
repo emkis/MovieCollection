@@ -6,12 +6,12 @@
 
 <script lang="ts" setup>
 import { withDefaults } from 'vue'
-import { TextType, ETextTypes } from './types'
 
-type TextProps = { as?: TextType }
+type TextElement = 'p' | 'span' | 'strong'
+type TextProps = { as?: TextElement }
 
 const props = withDefaults(defineProps<TextProps>(), {
-  as: ETextTypes.P,
+  as: 'p',
 })
 </script>
 
