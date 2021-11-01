@@ -6,11 +6,9 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { HeadingLevel } from './types'
 
-type HeadingProps = {
-  level: HeadingLevel
-}
+type HeadingLevel = '1' | '2' | '3' | '4'
+type HeadingProps = { level: HeadingLevel }
 
 const props = defineProps<HeadingProps>()
 const computedAs = computed(() => `h${props.level}`)
