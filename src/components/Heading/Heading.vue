@@ -16,7 +16,7 @@ const computedAs = computed(() => `h${props.level}`)
 
 <style lang="scss" scoped>
 .Heading {
-  font-weight: 800;
+  @include heading-default-styles;
   color: var(--concept-text-primary);
 
   &--level-1 {

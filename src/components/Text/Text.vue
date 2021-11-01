@@ -17,13 +17,9 @@ const props = withDefaults(defineProps<TextProps>(), {
 
 <style lang="scss" scoped>
 .Text {
-  font-size: rem(18px);
-  font-weight: 400;
+  font-size: rem(20px);
+  @include body-default-styles;
   color: var(--concept-text-secondary);
-
-  @media (min-width: $breakpoint-m) {
-    font-size: rem(20px);
-  }
 }
 
 strong.Text {
