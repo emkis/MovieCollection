@@ -20,32 +20,28 @@ const computedAs = computed(() => `h${props.level}`)
   color: var(--concept-text-primary);
 
   &--level-1 {
-    font-size: rem(37px);
+    font-size: rem(40px);
   }
 
   &--level-2 {
-    font-size: rem(28px);
+    font-size: rem(24px);
   }
 
   &--level-3 {
-    font-size: rem(22px);
+    font-size: rem(20px);
   }
 
   &--level-4 {
-    font-size: rem(18px);
-  }
-
-  &--level-5 {
     font-size: rem(16px);
   }
 
   @media (min-width: $breakpoint-m) {
     &--level-1 {
-      font-size: rem(64px);
+      font-size: rem(48px);
     }
 
     &--level-2 {
-      font-size: rem(38px);
+      font-size: rem(32px);
     }
 
     &--level-3 {
