@@ -5,8 +5,8 @@
     "start": "vite --port 8080",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint \"src/**/*.{vue,ts}\"",
-    "lint:fix": "eslint \"src/**/*.{vue,ts}\" --fix"
+    "lint": "eslint \"src/**/*.{vue,ts,js}\" --fix",
+    "format": "prettier --write \"src/**/*.{json,css,scss}\""
   },
   "dependencies": {
     "axios": "^0.24.0",
