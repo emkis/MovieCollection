@@ -16,5 +16,6 @@
 <script lang="ts" setup>
 import { iconDefaultProps } from './icon-default-props'
 
+// eslint-disable-next-line vue/valid-define-props
 const props = defineProps({ ...iconDefaultProps })
 </script>
