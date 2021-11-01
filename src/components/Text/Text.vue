@@ -23,6 +23,6 @@ const props = withDefaults(defineProps<TextProps>(), {
 }
 
 strong.Text {
-  font-weight: 600;
+  font-weight: 700;
 }
 </style>
