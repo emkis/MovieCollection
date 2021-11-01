@@ -1,10 +1,7 @@
 <template>
   <div v-if="movieDetailsState.isSuccess.value" class="Movie">
     <div class="Movie__poster">
-      <Suspense>
-        <Image alt="Movie Poster" :src="movie!.poster" />
-        <template #fallback> Loading hero... </template>
-      </Suspense>
+      <img alt="Movie Poster" :src="movie!.poster" />
     </div>
 
     <main class="Movie__presentation">
@@ -37,7 +34,6 @@ import { usePageTitle } from '@/hooks/use-page-title'
 
 import { Heading } from '@/components/Heading'
 import { Text } from '@/components/Text'
-import { Image } from '@/components/Image'
 import { MovieInfo } from '@/components/MovieInfo'
 import MovieHeartScore from './components/MovieHeartScore.vue'
 import MovieReviews from './components/MovieReviews.vue'
