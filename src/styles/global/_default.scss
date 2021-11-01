@@ -5,11 +5,8 @@ body,
 }
 
 #app {
+  @include body-default-styles;
   color: var(--concept-text-secondary);
-}
-
-svg {
-  max-width: 100%;
 }
 
 h1,
@@ -17,10 +14,10 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: $font-heading;
-  line-height: $font-heading-height;
-  font-weight: 800;
-  letter-spacing: -0.64px;
+  @include heading-default-styles;
   color: var(--concept-text-primary);
 }
 
+svg {
+  max-width: 100%;
+}
