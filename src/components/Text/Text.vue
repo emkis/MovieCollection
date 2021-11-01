@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { withDefaults } from 'vue'
 
-type TextElement = 'p' | 'span' | 'strong'
+type TextElement = 'p' | 'span' | 'strong' | 'small'
 type TextProps = { as?: TextElement }
 
 const props = withDefaults(defineProps<TextProps>(), {
@@ -24,5 +24,9 @@ const props = withDefaults(defineProps<TextProps>(), {
 
 strong.Text {
   font-weight: 700;
+}
+
+small.Text {
+  font-size: rem(16px);
 }
 </style>
