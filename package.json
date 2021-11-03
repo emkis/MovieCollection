@@ -2,6 +2,7 @@
   "name": "movie-collection",
   "version": "1.0.0",
   "scripts": {
+    "prepare": "husky install",
     "start": "vite --port 8080",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
