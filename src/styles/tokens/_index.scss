@@ -2,3 +2,11 @@
 @forward 'typography';
 @forward 'breakpoints';
 @forward 'spacing';
+
+/*
+  This file only exports all tokens, so it doesn't add
+  to the final CSS bundle.
+
+  All these tokens are available for any component, they are
+  being provided in the `vite.config.ts` configuration file.
+*/

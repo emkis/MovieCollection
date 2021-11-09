@@ -2,3 +2,10 @@
 @use 'reset';
 @use 'default';
 @use 'root';
+
+/*
+  These are the global application styles, this file
+  should be only imported once, preferably where the application starts.
+
+  The order of these `@use` matters, so be careful before changing it.
+*/
