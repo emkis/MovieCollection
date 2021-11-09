@@ -16,7 +16,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/styles/tokens/index.scss";`,
+        additionalData: `
+          @use "@/styles/tokens" as *;
+          @use "/node_modules/sass-rem" as *;
+        `,
       },
     },
   },
