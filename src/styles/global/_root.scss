@@ -1,0 +1,6 @@
+@use '@/styles/theme' as *;
+
+:root {
+  @include colors;
+  @include concepts;
+}

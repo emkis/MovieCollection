@@ -1,9 +1,4 @@
 @use 'normalize';
 @use 'reset';
 @use 'default';
-@use '../theme' as *;
-
-:root {
-  @include colors;
-  @include concepts;
-}
+@use 'root';
