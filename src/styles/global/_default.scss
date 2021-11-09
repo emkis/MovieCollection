@@ -4,7 +4,7 @@ body,
 }
 
 #app {
-  @include body-default-styles;
+  @include typography-body-styles;
   color: var(--concept-text-secondary);
 }
 
@@ -12,7 +12,7 @@ h1,
 h2,
 h3,
 h4 {
-  @include heading-default-styles;
+  @include typography-heading-styles;
   color: var(--concept-text-primary);
 }
 

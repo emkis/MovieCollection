@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<TextProps>(), {
 <style lang="scss" scoped>
 .Text {
   font-size: rem(20px);
-  @include body-default-styles;
+  @include typography-body-styles;
   color: var(--concept-text-secondary);
 }
 

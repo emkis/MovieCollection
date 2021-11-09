@@ -1,7 +1,7 @@
 $font-heading: 'Montserrat', sans-serif;
 $font-heading-height: 1.5;
 
-@mixin heading-default-styles {
+@mixin typography-heading-styles {
   font-family: $font-heading;
   line-height: $font-heading-height;
   font-weight: 800;
@@ -11,7 +11,7 @@ $font-heading-height: 1.5;
 $font-body: 'Source Sans Pro', sans-serif;
 $font-body-height: 1.5;
 
-@mixin body-default-styles {
+@mixin typography-body-styles {
   font-family: $font-body;
   line-height: $font-body-height;
   font-weight: 400;
