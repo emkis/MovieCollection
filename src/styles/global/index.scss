@@ -1,7 +1,7 @@
-@import '/node_modules/modern-normalize/modern-normalize.css';
-@import 'reset';
-@import 'default';
-@import '../theme/index.scss';
+@use 'normalize';
+@use 'reset';
+@use 'default';
+@use '../theme' as *;
 
 :root {
   @include colors;
