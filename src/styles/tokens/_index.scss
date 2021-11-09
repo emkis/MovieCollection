@@ -1,5 +1,4 @@
-@import '/node_modules/sass-rem';
-@import 'borders';
-@import 'typography';
-@import 'breakpoints';
-@import 'spacing';
+@forward 'borders';
+@forward 'typography';
+@forward 'breakpoints';
+@forward 'spacing';
