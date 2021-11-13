@@ -5,7 +5,7 @@
       {{ review.score }}%
     </Heading>
     <Text class="MovieReviewCard__comment">{{ review.comment }}</Text>
-    <Heading class="MovieReviewCard__author" level="5">
+    <Heading class="MovieReviewCard__author" level="4">
       {{ review.author }}
       <br />
       <span>
