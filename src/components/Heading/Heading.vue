@@ -1,7 +1,7 @@
 <template>
-  <component :is="computedAs" :class="['Heading', `Heading--level-${level}`]">
+  <Component :is="computedAs" :class="['Heading', `Heading--level-${level}`]">
     <slot />
-  </component>
+  </Component>
 </template>
 
 <script lang="ts" setup>

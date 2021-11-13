@@ -1,7 +1,7 @@
 <template>
-  <component :is="as" class="Text">
+  <Component :is="as" class="Text">
     <slot />
-  </component>
+  </Component>
 </template>
 
 <script lang="ts" setup>
