@@ -2,13 +2,14 @@
   "name": "movie-collection",
   "version": "1.0.0",
   "scripts": {
-    "postinstall": "modclean",
+    "postinstall": "npm-run-all clean-modules",
     "prepare": "husky install",
     "start": "vite --port 8080",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{vue,ts,js}\" --fix",
-    "format": "prettier --write \"src/**/*.{json,css,scss}\""
+    "format": "prettier --write \"src/**/*.{json,css,scss}\"",
+    "clean-modules": "modclean --run"
   },
   "dependencies": {
     "axios": "^0.24.0",
