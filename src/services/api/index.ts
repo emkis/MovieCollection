@@ -4,7 +4,7 @@ import { setupCache } from 'axios-cache-adapter'
 import { environment } from '@/configs/environment'
 
 const cache = setupCache({
-  maxAge: 15 * 60 * 3000, // 15 minutes
+  maxAge: 10 * 60 * 1000, // 10 minutes
 })
 
 export function createApiService(baseURL: string) {
