@@ -1,5 +1,5 @@
 <template>
-  <Component :is="computedAs" :class="['Heading', `Heading--level-${level}`]">
+  <Component :is="headingElement" :class="['Heading', `Heading--level-${level}`]">
     <slot />
   </Component>
 </template>
@@ -11,7 +11,7 @@ type HeadingLevel = '1' | '2' | '3' | '4'
 type HeadingProps = { level: HeadingLevel }
 
 const props = defineProps<HeadingProps>()
-const computedAs = computed(() => `h${props.level}`)
+const headingElement = computed(() => `h${props.level}`)
 </script>
 
 <style lang="scss" scoped>
