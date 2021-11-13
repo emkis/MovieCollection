@@ -1,16 +1,10 @@
 import { validateStorageItem } from './local-storage-validators'
+import { createLocalStorageKey } from './local-storage-key'
 
-const LOCAL_STORAGE_PREFIX = '@MovieCollection:'
-
-export function createLocalStorageService(storagePrefixKey = LOCAL_STORAGE_PREFIX) {
-  // Creates the custom key that will be used in all stored items
-  function makeCustomKey(key: string): string {
-    return `${storagePrefixKey}${key}`
-  }
-
+export function createLocalStorageService() {
   return {
     get<T>(key: string): T | null {
-      const customKey = makeCustomKey(key)
+      const customKey = createLocalStorageKey(key)
       const isValidData = validateStorageItem(customKey)
       if (!isValidData) return null
 
@@ -19,12 +13,12 @@ export function createLocalStorageService(storagePrefixKey = LOCAL_STORAGE_PREFI
     },
 
     set<T>(key: string, data: T): void {
-      const customKey = makeCustomKey(key)
+      const customKey = createLocalStorageKey(key)
       localStorage.setItem(customKey, JSON.stringify(data))
     },
 
     delete(key: string): void {
-      const customKey = makeCustomKey(key)
+      const customKey = createLocalStorageKey(key)
       localStorage.removeItem(customKey)
     },
   }
