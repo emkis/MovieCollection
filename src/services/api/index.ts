@@ -7,7 +7,7 @@ const cache = setupCache({
   maxAge: 15 * 60 * 3000, // 15 minutes
 })
 
-export function createApiService(baseURL = environment.apiUrl) {
+export function createApiService(baseURL: string) {
   return axios.create({
     baseURL,
     timeout: 10000,
@@ -15,5 +15,5 @@ export function createApiService(baseURL = environment.apiUrl) {
   })
 }
 
-export const ApiService = createApiService()
+export const ApiService = createApiService(environment.apiUrl)
 axiosRetry(ApiService, { retries: 1 })
