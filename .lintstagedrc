@@ -1,8 +1,8 @@
 {
   "src/**/*.{vue,ts,js}": [
-    "yarn lint"
+    "eslint --fix"
   ],
   "src/**/*.{json,css,scss}": [
-    "yarn format"
+    "prettier --write"
   ]
 }
