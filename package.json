@@ -13,7 +13,7 @@
     "axios": "^0.24.0",
     "axios-cache-adapter": "^2.7.3",
     "axios-retry": "^3.2.4",
-    "core-js": "^3.19.0",
+    "core-js": "^3.19.1",
     "lodash-es": "^4.17.21",
     "modern-css-reset": "^1.4.0",
     "modern-normalize": "^1.1.0",
@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.5",
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "@typescript-eslint/parser": "^5.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
     "@vitejs/plugin-vue": "^1.9.4",
-    "@vue/compiler-sfc": "^3.2.20",
+    "@vue/compiler-sfc": "^3.2.21",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-typescript": "^9.0.0",
-    "eslint": "^8.1.0",
+    "@vue/eslint-config-typescript": "^9.0.1",
+    "eslint": "^8.2.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "husky": "^7.0.4",
@@ -38,9 +38,9 @@
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
     "typescript": "^4.4.4",
-    "vite": "^2.6.13",
+    "vite": "^2.6.14",
     "vue-eslint-parser": "^8.0.1",
-    "vue-tsc": "^0.28.10"
+    "vue-tsc": "^0.29.4"
   },
   "msw": {
     "workerDirectory": "public"
