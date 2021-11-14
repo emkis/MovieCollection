@@ -4,7 +4,7 @@ import type { MovieDetail, MovieReview } from '@/services/api/movie'
 export type MovieComplete = MovieDetail & { reviews: MovieReview[] }
 type MovieIdentifier = Pick<MovieDetail, 'id' | 'name' | 'slug'>
 
-const makeMovieIdentifier = (movieName: string): MovieIdentifier => ({
+export const makeMovieIdentifier = (movieName: string): MovieIdentifier => ({
   id: uniqueId(),
   name: movieName,
   slug: kebabCase(movieName),
