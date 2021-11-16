@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "axios-cache-adapter": "^2.7.3",
     "axios-retry": "^3.2.4",
     "core-js": "^3.19.1",
     "hash-string": "^1.0.0",
