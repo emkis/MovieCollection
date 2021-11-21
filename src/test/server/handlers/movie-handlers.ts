@@ -26,14 +26,14 @@ export const movieHandlers: RestHandler[] = [
     return response(context.status(200), context.delay(defaultDelay), context.json(parsedMovies))
   }),
 
-  rest.get<never, MovieReview[]>(`${apiUrl}/movie-review/:slug`, (request, response, context) => {
+  rest.get<never, MovieReview[]>(`${apiUrl}/movie/:slug/review`, (request, response, context) => {
     const movie = movieDatabase.getBySlug(request.params.slug)
     if (!movie) return notFoundResponse()
 
     return response(context.status(200), context.delay(defaultDelay), context.json(movie.reviews))
   }),
 
-  rest.get<never, MovieDetail>(`${apiUrl}/movie-detail/:slug`, (request, response, context) => {
+  rest.get<never, MovieDetail>(`${apiUrl}/movie/:slug/detail`, (request, response, context) => {
     const movie = movieDatabase.getBySlug(request.params.slug)
     if (!movie) return notFoundResponse()
 
