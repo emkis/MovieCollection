@@ -25,6 +25,7 @@
     "msw": "^0.35.0",
     "sass-rem": "^3.0.0",
     "vue": "^3.2.21",
+    "vue-query": "^1.14.0",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
