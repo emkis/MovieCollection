@@ -6,7 +6,11 @@
   </RouterView>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useQueryProvider } from 'vue-query'
+
+useQueryProvider()
+</script>
 
 <style lang="scss" scoped>
 .fade {
