@@ -11,11 +11,11 @@ export function createMovieService(httpClient = ApiService) {
     },
 
     async fetchMovieReviews(movieSlug: string) {
-      return httpClient.get<MovieReview[]>(`/movie-review/${movieSlug}`)
+      return httpClient.get<MovieReview[]>(`/movie/${movieSlug}/review`)
     },
 
     async fetchMovieDetails(movieSlug: string) {
-      return httpClient.get<MovieDetail>(`/movie-detail/${movieSlug}`)
+      return httpClient.get<MovieDetail>(`/movie/${movieSlug}/detail`)
     },
 
     isScoreOverAverage(score: number): boolean {
