@@ -6,15 +6,15 @@ export const AVERAGE_MOVIE_SCORE = 55
 
 export function createMovieService(httpClient = ApiService) {
   return {
-    async fetchMovies() {
+    fetchMovies() {
       return httpClient.get<Movie[]>('/movies')
     },
 
-    async fetchMovieReviews(movieSlug: string) {
+    fetchMovieReviews(movieSlug: string) {
       return httpClient.get<MovieReview[]>(`/movie/${movieSlug}/review`)
     },
 
-    async fetchMovieDetails(movieSlug: string) {
+    fetchMovieDetails(movieSlug: string) {
       return httpClient.get<MovieDetail>(`/movie/${movieSlug}/detail`)
     },
 
