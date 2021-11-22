@@ -1,5 +1,5 @@
 <template>
-  <div v-if="movieDetailsState.isSuccess.value" class="Movie">
+  <div v-if="movieDetailsQuery.isSuccess.value" class="Movie">
     <div class="Movie__poster">
       <img alt="Movie Poster" :src="movie!.poster" />
     </div>
@@ -39,13 +39,20 @@ import MovieHeartScore from './components/MovieHeartScore.vue'
 import MovieReviews from './components/MovieReviews.vue'
 
 const route = useRoute()
-const movieSlug = route.params.slug as string
-const movieDetailsState = useMovieDetails(movieSlug)
-const movie = movieDetailsState.movieDetails
-
 const { setTitle } = usePageTitle()
-const setMovieNameOnPage = () => setTitle(movie.value!.name)
-watch(movie, setMovieNameOnPage)
+
+const movieSlug = route.params.slug as string
+const movieDetailsQuery = useMovieDetails(movieSlug)
+const movie = movieDetailsQuery.data
+
+const setMovieNameOnPage = () => {
+  const movieName = route.params.name as string | undefined
+
+  if (movieName) setTitle(movieName)
+  else movie.value && setTitle(movie.value.name)
+}
+
+watch(movie, setMovieNameOnPage, { immediate: true })
 </script>
 
 <style lang="scss" scoped>
