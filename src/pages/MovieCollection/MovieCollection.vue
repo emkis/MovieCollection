@@ -9,14 +9,10 @@
       An awesome movie collection with some nice user interface interactions
     </Text>
 
-    <Heading v-if="isFetchFailed" level="2">Sorry, something went wrong :(</Heading>
+    <Heading v-if="moviesQuery.isError.value" level="2">Sorry, something went wrong :(</Heading>
 
     <section class="MovieCollection__movies">
-      <template v-if="isFetchingMovie">
-        <MovieCollectionCardLoader v-for="item in 5" :key="item" />
-      </template>
-
-      <template v-else>
+      <template v-if="moviesQuery.isSuccess.value">
         <MovieCollectionCard
           v-for="movie in movies"
           :key="movie.id"
@@ -27,14 +23,17 @@
           @keydown.space.enter.prevent="handleMovieClick(movie.slug)"
         />
       </template>
+
+      <template v-else-if="moviesQuery.isFetching.value">
+        <MovieCollectionCardLoader v-for="item in 5" :key="item" />
+      </template>
     </section>
   </Container>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { MovieService, Movie } from '@/services/api/movie'
+import { useMovies } from './hooks/use-movies'
 
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
@@ -43,34 +42,16 @@ import { Text } from '@/components/Text'
 import MovieCollectionCard from './components/MovieCollectionCard.vue'
 import MovieCollectionCardLoader from './components/MovieCollectionCardLoader.vue'
 
-const { push } = useRouter()
-
-const movies = ref<Movie[]>([])
-const isFetchingMovie = ref(true)
-const isFetchFailed = ref(false)
+const router = useRouter()
+const moviesQuery = useMovies()
+const movies = moviesQuery.data
 
 function handleMovieClick(movieSlug: string) {
-  push({
+  router.push({
     name: 'Movie',
     params: { slug: movieSlug },
   })
 }
-
-async function getMovies() {
-  isFetchFailed.value = false
-  isFetchingMovie.value = true
-
-  try {
-    const moviesResponse = await MovieService.fetchMovies()
-    movies.value = moviesResponse.data
-  } catch {
-    isFetchFailed.value = true
-  } finally {
-    isFetchingMovie.value = false
-  }
-}
-
-getMovies()
 </script>
 
 <style lang="scss" scoped>
