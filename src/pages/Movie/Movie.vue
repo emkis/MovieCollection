@@ -39,7 +39,7 @@ import MovieHeartScore from './components/MovieHeartScore.vue'
 import MovieReviews from './components/MovieReviews.vue'
 
 const route = useRoute()
-const { setTitle } = usePageTitle()
+const pageTitle = usePageTitle()
 
 const movieSlug = route.params.slug as string
 const movieDetailsQuery = useMovieDetails(movieSlug)
@@ -48,8 +48,8 @@ const movie = movieDetailsQuery.data
 const setMovieNameOnPage = () => {
   const movieName = route.params.name as string | undefined
 
-  if (movieName) setTitle(movieName)
-  else movie.value && setTitle(movie.value.name)
+  if (movieName) pageTitle.set(movieName)
+  else movie.value && pageTitle.set(movie.value.name)
 }
 
 watch(movie, setMovieNameOnPage, { immediate: true })
