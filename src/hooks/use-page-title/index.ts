@@ -1,7 +1,7 @@
 import { ref, watchEffect, readonly } from 'vue'
 import { environment } from '@/configs/environment'
 
-type SetTitleOptions = {
+type SetOptions = {
   appendAppName?: boolean
 }
 
@@ -16,11 +16,11 @@ export function usePageTitle() {
     document.title = title
   }
 
-  function resetTitle() {
-    setTitle(appTitle, { appendAppName: false })
+  function reset() {
+    set(appTitle, { appendAppName: false })
   }
 
-  function setTitle(pageName: string, { appendAppName = true }: SetTitleOptions = {}) {
+  function set(pageName: string, { appendAppName = true }: SetOptions = {}) {
     if (appendAppName) {
       title.value = `${pageName} on ${appTitle}`
     } else {
@@ -28,5 +28,9 @@ export function usePageTitle() {
     }
   }
 
-  return { title: readonly(title), setTitle, resetTitle }
+  return {
+    set,
+    reset,
+    currentTitle: readonly(title),
+  }
 }
