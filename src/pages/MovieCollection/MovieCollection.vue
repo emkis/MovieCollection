@@ -19,8 +19,8 @@
           tabindex="0"
           role="button"
           :movie="movie"
-          @click="handleMovieClick(movie.slug)"
-          @keydown.space.enter.prevent="handleMovieClick(movie.slug)"
+          @click="handleMovieClick(movie)"
+          @keydown.space.enter.prevent="handleMovieClick(movie)"
         />
       </template>
 
@@ -34,6 +34,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import { useMovies } from './hooks/use-movies'
+import type { Movie } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
@@ -46,11 +47,9 @@ const router = useRouter()
 const moviesQuery = useMovies()
 const movies = moviesQuery.data
 
-function handleMovieClick(movieSlug: string) {
-  router.push({
-    name: 'Movie',
-    params: { slug: movieSlug },
-  })
+function handleMovieClick(movie: Movie) {
+  const { slug, name } = movie
+  router.push({ name: 'Movie', params: { slug, name } })
 }
 </script>
 
