@@ -1,9 +1,8 @@
 import { ref, watchEffect, readonly } from 'vue'
 import { environment } from '@/configs/environment'
 
-type SetOptions = {
-  appendAppName?: boolean
-}
+type SetOptions = { appendAppName?: boolean }
+const defaultSetOptions: SetOptions = { appendAppName: true }
 
 export function usePageTitle() {
   const { appTitle } = environment
@@ -20,8 +19,8 @@ export function usePageTitle() {
     set(appTitle, { appendAppName: false })
   }
 
-  function set(pageName: string, { appendAppName = true }: SetOptions = {}) {
-    if (appendAppName) {
+  function set(pageName: string, options: SetOptions = defaultSetOptions) {
+    if (options.appendAppName) {
       title.value = `${pageName} on ${appTitle}`
     } else {
       title.value = pageName
