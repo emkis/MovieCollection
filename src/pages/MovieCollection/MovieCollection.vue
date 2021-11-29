@@ -56,7 +56,7 @@ function handleMovieClick(movie: Movie) {
 <style lang="scss" scoped>
 .MovieCollection {
   margin: 0 auto;
-  max-width: rem(768px);
+  max-width: 768px;
   text-align: center;
 
   &__title {
@@ -67,22 +67,20 @@ function handleMovieClick(movie: Movie) {
     > svg {
       max-width: rem(40px);
       margin-left: 16px;
+
+      @media (min-width: $breakpoint-m) {
+        max-width: rem(60px);
+      }
     }
   }
 
   &__description {
-    margin: rem(24px auto 72px);
-    max-width: rem(450px);
+    margin: 24px auto 72px;
+    max-width: 450px;
   }
 
   &__movies > :not(:last-child) {
-    margin-bottom: rem(24px);
-  }
-
-  @media (min-width: $breakpoint-m) {
-    &__title > svg {
-      max-width: rem(60px);
-    }
+    margin-bottom: 24px;
   }
 }
 </style>
