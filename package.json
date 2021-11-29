@@ -6,13 +6,14 @@
     "postinstall": "npm-run-all clean-modules",
     "prepare": "husky install",
     "start": "vite --port 8080",
-    "build": "npm-run-all type-checking vite:build",
+    "build": "npm-run-all type-checking vite:build optimize-css",
     "type-checking": "vue-tsc --noEmit",
     "vite:build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{vue,ts,js}\" --fix",
     "format": "prettier --write \"src/**/*.{json,css,scss}\"",
-    "clean-modules": "modclean --run"
+    "clean-modules": "modclean --run",
+    "optimize-css": "postcss dist/**/*.css --replace --verbose"
   },
   "dependencies": {
     "axios": "^0.24.0",
