@@ -56,9 +56,9 @@ watch(movie, setMovieNameOnPage, { immediate: true })
 </script>
 
 <style lang="scss" scoped>
-.Movie {
-  $poster-height: 400px;
+$poster-height: 400px;
 
+.Movie {
   max-width: 768px;
   margin: 0 auto;
   padding: 0 24px 72px;
