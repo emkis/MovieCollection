@@ -1,16 +1,14 @@
 <template>
   <div class="card" aria-hidden="true">
-    <div v-for="square in 3" :key="square" class="card__block" />
+    <div v-for="square in 3" :key="square" class="card__block" aria-hidden="true" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .card {
-  $square-height: rem(22px);
-  $gutter: rem(21px);
-
+  $square-height: 22px;
   display: grid;
-  gap: $gutter;
+  gap: 21px;
   grid-template-rows: repeat(3, $square-height);
   grid-template-columns: repeat(12, 1fr);
   padding: rem(24px);
