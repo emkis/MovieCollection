@@ -1,33 +1,33 @@
 <template>
-  <Container class="MovieCollection">
-    <Heading class="MovieCollection__title" level="1">
+  <Container class="container">
+    <Heading class="app-title" level="1">
       Movie Collection
       <IconPopcorn size="100%" />
     </Heading>
 
-    <Text class="MovieCollection__description">
+    <Text class="app-description">
       An awesome movie collection with some nice user interface interactions
     </Text>
 
-    <Heading v-if="moviesQuery.isError.value" level="2">Sorry, something went wrong :(</Heading>
-
-    <section class="MovieCollection__movies">
+    <ul class="movie-list">
       <template v-if="moviesQuery.isSuccess.value">
-        <MovieCollectionCard
-          v-for="movie in movies"
-          :key="movie.id"
-          tabindex="0"
-          role="button"
-          :movie="movie"
-          @click="handleMovieClick(movie)"
-          @keydown.space.enter.prevent="handleMovieClick(movie)"
-        />
+        <li v-for="movie in movies" :key="movie.id" class="movie-list__item">
+          <MovieCollectionCard
+            tabindex="0"
+            role="button"
+            :movie="movie"
+            @click="handleMovieClick(movie)"
+            @keydown.space.enter.prevent="handleMovieClick(movie)"
+          />
+        </li>
       </template>
 
       <template v-else-if="moviesQuery.isFetching.value">
-        <MovieCollectionCardLoader v-for="item in 5" :key="item" />
+        <li v-for="item in 5" :key="item" class="movie-list__item" aria-hidden="true">
+          <MovieCollectionCardLoader />
+        </li>
       </template>
-    </section>
+    </ul>
   </Container>
 </template>
 
@@ -54,33 +54,33 @@ function handleMovieClick(movie: Movie) {
 </script>
 
 <style lang="scss" scoped>
-.MovieCollection {
+.container {
   margin: 0 auto;
   max-width: 768px;
   text-align: center;
+}
 
-  &__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.app-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    > svg {
-      max-width: rem(40px);
-      margin-left: 16px;
+  > svg {
+    max-width: rem(40px);
+    margin-left: 16px;
 
-      @media (min-width: $breakpoint-m) {
-        max-width: rem(60px);
-      }
+    @media (min-width: $breakpoint-m) {
+      max-width: rem(60px);
     }
   }
+}
 
-  &__description {
-    margin: 24px auto 72px;
-    max-width: 450px;
-  }
+.app-description {
+  margin: 24px auto 72px;
+  max-width: 450px;
+}
 
-  &__movies > :not(:last-child) {
-    margin-bottom: 24px;
-  }
+.movie-list > .movie-list__item:not(:last-child) {
+  margin-bottom: 24px;
 }
 </style>
