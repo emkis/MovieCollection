@@ -16,7 +16,7 @@ function notFoundResponse() {
 }
 
 export const movieHandlers: RestHandler[] = [
-  rest.get<never, Movie[]>(`${apiUrl}/movies`, (_, response, context) => {
+  rest.get<never, never, Movie[]>(`${apiUrl}/movies`, (_, response, context) => {
     const movies = movieDatabase.getAll()
 
     const parsedMovies = movies.map((movie) => {
@@ -26,18 +26,24 @@ export const movieHandlers: RestHandler[] = [
     return response(context.status(200), context.delay(defaultDelay), context.json(parsedMovies))
   }),
 
-  rest.get<never, MovieReview[]>(`${apiUrl}/movie/:slug/review`, (request, response, context) => {
-    const movie = movieDatabase.getBySlug(request.params.slug)
-    if (!movie) return notFoundResponse()
+  rest.get<never, { slug: string }, MovieReview[]>(
+    `${apiUrl}/movie/:slug/review`,
+    (request, response, context) => {
+      const movie = movieDatabase.getBySlug(request.params.slug)
+      if (!movie) return notFoundResponse()
 
-    return response(context.status(200), context.delay(defaultDelay), context.json(movie.reviews))
-  }),
+      return response(context.status(200), context.delay(defaultDelay), context.json(movie.reviews))
+    }
+  ),
 
-  rest.get<never, MovieDetail>(`${apiUrl}/movie/:slug/detail`, (request, response, context) => {
-    const movie = movieDatabase.getBySlug(request.params.slug)
-    if (!movie) return notFoundResponse()
+  rest.get<never, { slug: string }, MovieDetail>(
+    `${apiUrl}/movie/:slug/detail`,
+    (request, response, context) => {
+      const movie = movieDatabase.getBySlug(request.params.slug)
+      if (!movie) return notFoundResponse()
 
-    const movieDetails = omit(movie, ['reviews'])
-    return response(context.status(200), context.delay(defaultDelay), context.json(movieDetails))
-  }),
+      const movieDetails = omit(movie, ['reviews'])
+      return response(context.status(200), context.delay(defaultDelay), context.json(movieDetails))
+    }
+  ),
 ]
