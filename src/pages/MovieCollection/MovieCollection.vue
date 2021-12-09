@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { useMovies } from './hooks/use-movies'
+import { useMoviesQuery } from './hooks/use-movies-query'
 import type { Movie } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
@@ -44,7 +44,7 @@ import MovieCollectionCard from './components/MovieCollectionCard.vue'
 import MovieCollectionCardLoader from './components/MovieCollectionCardLoader.vue'
 
 const router = useRouter()
-const moviesQuery = useMovies()
+const moviesQuery = useMoviesQuery()
 const movies = moviesQuery.data
 
 function handleMovieClick(movie: Movie) {
