@@ -2,12 +2,15 @@ import { useQuery } from 'vue-query'
 import { MovieService } from '@/services/api/movie'
 import { getDataFromRequest } from '@/utilities/from-request'
 
-export const queryKey = 'movie-detail'
+export const movieDetailsKeys = {
+  all: ['movie', 'detail'] as const,
+  specific: (slug: string) => [...movieDetailsKeys.all, slug],
+}
 
 export function useMovieDetails(movieSlug: string) {
   const fetchMovieDetails = () => {
     return getDataFromRequest(() => MovieService.fetchMovieDetails(movieSlug))
   }
 
-  return useQuery(['movie-detail', movieSlug], fetchMovieDetails)
+  return useQuery(movieDetailsKeys.specific(movieSlug), fetchMovieDetails)
 }
