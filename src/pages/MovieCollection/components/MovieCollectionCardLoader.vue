@@ -1,11 +1,11 @@
 <template>
-  <div class="MovieCollectionCardLoader">
-    <div v-for="square in 3" :key="square" class="MovieCollectionCardLoader__inner-square" />
+  <div class="card" aria-hidden="true">
+    <div v-for="square in 3" :key="square" class="card__block" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.MovieCollectionCardLoader {
+.card {
   $square-height: rem(22px);
   $gutter: rem(21px);
 
@@ -33,7 +33,7 @@
     grid-column: 1 / 3;
   }
 
-  &__inner-square {
+  &__block {
     min-height: $square-height;
     background: var(--concept-over-background-element);
     border-radius: $border-radius-m;
