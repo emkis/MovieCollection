@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useMovieDetails } from './hooks/use-movie-details'
+import { useMovieDetailsQuery } from './hooks/use-movie-details-query'
 import { usePageTitle } from '@/hooks/use-page-title'
 
 import { Heading } from '@/components/Heading'
@@ -42,7 +42,7 @@ const route = useRoute()
 const pageTitle = usePageTitle()
 
 const movieSlug = route.params.slug as string
-const movieDetailsQuery = useMovieDetails(movieSlug)
+const movieDetailsQuery = useMovieDetailsQuery(movieSlug)
 const movie = movieDetailsQuery.data
 
 const setMovieNameOnPage = () => {

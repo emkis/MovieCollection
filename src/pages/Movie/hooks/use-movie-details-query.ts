@@ -7,7 +7,7 @@ export const movieDetailsKeys = {
   specific: (slug: string) => [...movieDetailsKeys.all, slug],
 }
 
-export function useMovieDetails(movieSlug: string) {
+export function useMovieDetailsQuery(movieSlug: string) {
   const fetchMovieDetails = () => {
     return getDataFromRequest(() => MovieService.fetchMovieDetails(movieSlug))
   }
