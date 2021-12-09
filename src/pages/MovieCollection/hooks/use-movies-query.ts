@@ -2,9 +2,11 @@ import { useQuery } from 'vue-query'
 import { MovieService } from '@/services/api/movie'
 import { getDataFromRequest } from '@/utilities/from-request'
 
-export const queryKey = 'movies'
+export const moviesKeys = {
+  all: ['movies'],
+}
 
-export function useMovies() {
+export function useMoviesQuery() {
   const fetchMovies = () => getDataFromRequest(MovieService.fetchMovies)
-  return useQuery(queryKey, fetchMovies)
+  return useQuery(moviesKeys.all, fetchMovies)
 }
