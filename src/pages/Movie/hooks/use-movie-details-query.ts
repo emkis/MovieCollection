@@ -4,7 +4,7 @@ import { getDataFromRequest } from '@/utilities/from-request'
 
 export const movieDetailsKeys = {
   all: ['movie', 'detail'] as const,
-  specific: (slug: string) => [...movieDetailsKeys.all, slug],
+  specific: (slug: string) => [...movieDetailsKeys.all, slug] as const,
 }
 
 export function useMovieDetailsQuery(movieSlug: string) {
@@ -12,5 +12,5 @@ export function useMovieDetailsQuery(movieSlug: string) {
     return getDataFromRequest(() => MovieService.fetchMovieDetails(movieSlug))
   }
 
-  return useQuery(movieDetailsKeys.specific(movieSlug), fetchMovieDetails)
+  return useQuery(movieDetailsKeys.specific(movieSlug), fetchMovieDetails, {})
 }

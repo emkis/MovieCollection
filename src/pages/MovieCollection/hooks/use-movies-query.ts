@@ -3,7 +3,7 @@ import { MovieService } from '@/services/api/movie'
 import { getDataFromRequest } from '@/utilities/from-request'
 
 export const moviesKeys = {
-  all: ['movies'],
+  all: ['movies'] as const,
 }
 
 export function useMoviesQuery() {
