@@ -31,7 +31,7 @@ const RatingIcon = computed(() =>
 
 <style lang="scss" scoped>
 .MovieCollectionCard {
-  padding: rem(24px);
+  padding: 24px;
   background: var(--concept-over-background);
   border-radius: $border-radius-m;
   transition: transform 100ms ease, box-shadow 100ms ease;
@@ -49,7 +49,7 @@ const RatingIcon = computed(() =>
   }
 
   > * + * {
-    margin-top: rem(6px);
+    margin-top: 6px;
   }
 
   &__rating {
@@ -57,7 +57,7 @@ const RatingIcon = computed(() =>
     align-items: center;
 
     > strong {
-      margin-left: rem(6px);
+      margin-left: 6px;
       color: var(--concept-text-primary);
     }
   }

@@ -6,10 +6,10 @@
 
 <style lang="scss" scoped>
 .Container {
-  padding: rem(72px 15px);
+  padding: 72px 15px;
 
   @media (min-width: $breakpoint-m) {
-    padding: rem(120px 24px);
+    padding: 120px 24px;
   }
 }
 </style>
