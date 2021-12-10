@@ -1,8 +1,8 @@
 <template>
-  <div class="MovieCollectionCard">
+  <div class="card">
     <Heading level="3">{{ movie.name }}</Heading>
     <MovieInfo :year="movie.year" :category="movie.category" />
-    <div class="MovieCollectionCard__rating">
+    <div class="rating-group">
       <Component :is="RatingIcon" size="30" :color="EThemeColors.geraldine" />
       <Text as="strong">{{ movie.score }}%</Text>
     </div>
@@ -30,7 +30,7 @@ const RatingIcon = computed(() =>
 </script>
 
 <style lang="scss" scoped>
-.MovieCollectionCard {
+.card {
   padding: 24px;
   background: var(--concept-over-background);
   border-radius: $border-radius-m;
@@ -51,15 +51,15 @@ const RatingIcon = computed(() =>
   > * + * {
     margin-top: 6px;
   }
+}
 
-  &__rating {
-    display: flex;
-    align-items: center;
+.rating-group {
+  display: flex;
+  align-items: center;
 
-    > strong {
-      margin-left: 6px;
-      color: var(--concept-text-primary);
-    }
+  > strong {
+    margin-left: 6px;
+    color: var(--concept-text-primary);
   }
 }
 </style>
