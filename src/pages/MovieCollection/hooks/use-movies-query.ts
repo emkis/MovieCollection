@@ -8,5 +8,7 @@ export const moviesKeys = {
 
 export function useMoviesQuery() {
   const fetchMovies = () => getDataFromRequest(MovieService.fetchMovies)
-  return useQuery(moviesKeys.all, fetchMovies)
+  return useQuery(moviesKeys.all, fetchMovies, {
+    staleTime: Infinity,
+  })
 }

@@ -12,5 +12,7 @@ export function useMovieDetailsQuery(movieSlug: string) {
     return getDataFromRequest(() => MovieService.fetchMovieDetails(movieSlug))
   }
 
-  return useQuery(movieDetailsKeys.specific(movieSlug), fetchMovieDetails, {})
+  return useQuery(movieDetailsKeys.specific(movieSlug), fetchMovieDetails, {
+    staleTime: Infinity,
+  })
 }
