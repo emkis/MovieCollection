@@ -3,12 +3,16 @@ import { MovieService } from '@/services/api/movie'
 import { getDataFromRequest } from '@/utilities/from-request'
 import { movieKeys } from './movie-query-keys'
 
-export function useMovieDetailsQuery(movieSlug: string) {
-  const fetchMovieDetails = () => {
-    return getDataFromRequest(() => MovieService.fetchMovieDetails(movieSlug))
-  }
+export function createQueryKey(movieSlug: string) {
+  return movieKeys.detailWithSlug(movieSlug)
+}
 
-  return useQuery(movieKeys.detailWithSlug(movieSlug), fetchMovieDetails, {
-    staleTime: Infinity,
+export function fetchMovieDetails(movieSlug: string) {
+  return getDataFromRequest(() => MovieService.fetchMovieDetails(movieSlug))
+}
+
+export function useMovieDetailsQuery(movieSlug: string) {
+  return useQuery(createQueryKey(movieSlug), () => fetchMovieDetails(movieSlug), {
+    staleTime: 3000,
   })
 }
