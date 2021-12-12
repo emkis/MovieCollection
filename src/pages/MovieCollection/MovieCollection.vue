@@ -18,6 +18,7 @@
             :movie="movie"
             @click="handleMovieClick(movie)"
             @keydown.space.enter.prevent="handleMovieClick(movie)"
+            @mouseenter="handleMovieHover(movie)"
           />
         </li>
       </template>
@@ -33,7 +34,10 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
+import { debounce } from 'lodash-es'
 import { useMoviesQuery } from './queries/movies-query'
+import { useQueryClient } from 'vue-query'
+import { createQueryKey, fetchMovieDetails } from '@/pages/Movie/queries/movie-details-query'
 import type { Movie } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
@@ -44,6 +48,7 @@ import MovieCollectionCard from './components/MovieCollectionCard.vue'
 import MovieCollectionCardLoader from './components/MovieCollectionCardLoader.vue'
 
 const router = useRouter()
+const queryClient = useQueryClient()
 const moviesQuery = useMoviesQuery()
 const movies = moviesQuery.data
 
@@ -51,6 +56,14 @@ function handleMovieClick(movie: Movie) {
   const { slug, name } = movie
   router.push({ name: 'Movie', params: { slug, name } })
 }
+
+function prefetchMovie(movie: Movie) {
+  const queryKey = createQueryKey(movie.slug)
+  const fetcher = () => fetchMovieDetails(movie.slug)
+  queryClient.prefetchQuery(queryKey, fetcher, { staleTime: Infinity })
+}
+
+const handleMovieHover = debounce(prefetchMovie, 300)
 </script>
 
 <style lang="scss" scoped>
