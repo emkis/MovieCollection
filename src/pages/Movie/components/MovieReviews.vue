@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MovieService } from '@/services/api/movie'
+import { useMovieReviewsQuery } from '../hooks/use-movie-reviews-query'
 
 import { Heading } from '@/components/Heading'
 import MovieReviewCard from './MovieReviewCard.vue'
@@ -18,8 +18,8 @@ import MovieReviewCardList from './MovieReviewCardList.vue'
 type MovieReviewProps = { movieSlug: string }
 
 const props = defineProps<MovieReviewProps>()
-const reviewsResponse = await MovieService.fetchMovieReviews(props.movieSlug)
-const reviews = reviewsResponse.data
+const movieReviewsQuery = useMovieReviewsQuery(props.movieSlug)
+const reviews = movieReviewsQuery.data
 </script>
 
 <style lang="scss" scoped>
