@@ -1,6 +1,7 @@
 import { useQuery } from 'vue-query'
 import { MovieService } from '@/services/api/movie'
 import { getDataFromRequest } from '@/utilities/from-request'
+import { minutesInMilliseconds } from '@/utilities/time'
 import { movieKeys } from './movie-query-keys'
 
 export function createQueryKey(movieSlug: string) {
@@ -13,6 +14,6 @@ export function fetchMovieDetails(movieSlug: string) {
 
 export function useMovieDetailsQuery(movieSlug: string) {
   return useQuery(createQueryKey(movieSlug), () => fetchMovieDetails(movieSlug), {
-    staleTime: 3000,
+    staleTime: minutesInMilliseconds(3),
   })
 }
