@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useMovieReviewsQuery } from '../hooks/use-movie-reviews-query'
+import { useMovieReviewsQuery } from '../queries/movie-reviews-query'
 
 import { Heading } from '@/components/Heading'
 import MovieReviewCard from './MovieReviewCard.vue'

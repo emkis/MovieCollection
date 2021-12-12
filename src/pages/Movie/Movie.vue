@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useMovieDetailsQuery } from './hooks/use-movie-details-query'
+import { useMovieDetailsQuery } from './queries/movie-details-query'
 import { usePageTitle } from '@/hooks/use-page-title'
 
 import { Heading } from '@/components/Heading'
