@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { useMoviesQuery } from './hooks/use-movies-query'
+import { useMoviesQuery } from './queries/movies-query'
 import type { Movie } from '@/services/api/movie'
 
 import { Container } from '@/components/Container'
