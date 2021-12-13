@@ -1,5 +1,4 @@
 import axios from 'axios'
-import axiosRetry from 'axios-retry'
 import { environment } from '@/configs/environment'
 
 export function createApiService(baseURL: string) {
@@ -10,4 +9,3 @@ export function createApiService(baseURL: string) {
 }
 
 export const ApiService = createApiService(environment.apiUrl)
-axiosRetry(ApiService, { retries: 1 })
