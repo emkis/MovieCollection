@@ -4,7 +4,7 @@
       :is="Icon"
       v-for="(Icon, iconIndex) in HeartScore"
       :key="iconIndex"
-      :color="EThemeColors.geraldine"
+      :color="ThemeColors.geraldine"
       size="30"
     />
   </span>
@@ -14,7 +14,7 @@
 import { computed, h } from 'vue'
 import { MovieService, MAX_HEART_SCORE } from '@/services/api/movie'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
-import { EThemeColors } from '@/services/theme'
+import { ThemeColors } from '@/services/theme'
 
 type MovieHeartScoreProps = {
   score: number

@@ -3,7 +3,7 @@
     <Heading level="3">{{ movie.name }}</Heading>
     <MovieInfo :year="movie.year" :category="movie.category" />
     <div class="rating-group">
-      <Component :is="RatingIcon" size="30" :color="EThemeColors.geraldine" />
+      <Component :is="RatingIcon" size="30" :color="ThemeColors.geraldine" />
       <Text as="strong">{{ movie.score }}%</Text>
     </div>
   </div>
@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { EThemeColors } from '@/services/theme'
+import { ThemeColors } from '@/services/theme'
 import { Movie, MovieService } from '@/services/api/movie'
 
 import { Heading } from '@/components/Heading'

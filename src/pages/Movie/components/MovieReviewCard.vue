@@ -1,7 +1,7 @@
 <template>
   <li class="MovieReviewCard">
     <Heading level="4" class="MovieReviewCard__score">
-      <Component :is="HeartIcon" size="30" :color="EThemeColors.geraldine" />
+      <Component :is="HeartIcon" size="30" :color="ThemeColors.geraldine" />
       {{ review.score }}%
     </Heading>
     <Text class="MovieReviewCard__comment">{{ review.comment }}</Text>
@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { EThemeColors } from '@/services/theme'
+import { ThemeColors } from '@/services/theme'
 import { MovieReview, MovieService } from '@/services/api/movie'
 
 import { Text } from '@/components/Text'

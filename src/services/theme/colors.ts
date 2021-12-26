@@ -1,4 +1,4 @@
-export enum EThemeColors {
+export enum ThemeColors {
   shark = 'var(--color-shark)',
   charade = 'var(--color-charade)',
   brightGray = 'var(--color-bright-gray)',
