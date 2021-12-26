@@ -32,7 +32,7 @@ const RatingIcon = computed(() =>
 <style lang="scss" scoped>
 .card {
   padding: 24px;
-  background: var(--concept-over-background);
+  background: var(--color-charade);
   border-radius: $border-radius-m;
   transition: transform 100ms ease, box-shadow 100ms ease;
   text-align: left;
@@ -41,7 +41,7 @@ const RatingIcon = computed(() =>
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px var(--concept-over-background-element);
+    box-shadow: 0 0 0 3px var(--color-bright-gray);
   }
 
   &:active {
@@ -59,7 +59,7 @@ const RatingIcon = computed(() =>
 
   > strong {
     margin-left: 6px;
-    color: var(--concept-text-primary);
+    color: var(--color-white);
   }
 }
 </style>

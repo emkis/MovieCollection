@@ -31,7 +31,7 @@ const handleClick = () => !props.disabled && emit('onClick')
   line-height: 1;
   border: 1px solid transparent;
   border-radius: $border-radius-s;
-  color: var(--concept-text-primary);
+  color: var(--color-white);
   user-select: none;
   transition: background-color 200ms, color 200ms, opacity 200ms;
   cursor: pointer;
@@ -46,7 +46,7 @@ const handleClick = () => !props.disabled && emit('onClick')
   }
 
   &--default {
-    background: var(--concept-over-background-element);
+    background: var(--color-bright-gray);
   }
 
   &--primary {
@@ -59,7 +59,7 @@ const handleClick = () => !props.disabled && emit('onClick')
   }
 
   &--error {
-    background: var(--concept-error-color);
+    background: var(--color-geraldine);
   }
 
   @media (min-width: $breakpoint-m) {

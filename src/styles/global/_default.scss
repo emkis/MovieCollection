@@ -7,7 +7,7 @@ body,
 
 #app {
   @include typography-body-styles;
-  color: var(--concept-text-secondary);
+  color: var(--color-cadet-blue);
 }
 
 h1,
@@ -15,7 +15,7 @@ h2,
 h3,
 h4 {
   @include typography-heading-styles;
-  color: var(--concept-text-primary);
+  color: var(--color-white);
 }
 
 svg {

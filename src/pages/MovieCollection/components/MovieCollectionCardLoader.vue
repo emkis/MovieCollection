@@ -13,7 +13,7 @@
   grid-template-columns: repeat(12, 1fr);
   padding: rem(24px);
   min-height: $square-height;
-  background: var(--concept-over-background);
+  background: var(--color-charade);
   border-radius: $border-radius-m;
 
   :nth-child(1) {
@@ -33,7 +33,7 @@
 
   &__block {
     min-height: $square-height;
-    background: var(--concept-over-background-element);
+    background: var(--color-bright-gray);
     border-radius: $border-radius-m;
     animation: pulse 800ms infinite alternate;
   }

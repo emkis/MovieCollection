@@ -39,7 +39,7 @@ const HeartIcon = computed(() => {
   min-height: rem(320px);
   padding: rem(24px);
   border-radius: $border-radius-m;
-  background: var(--concept-over-background);
+  background: var(--color-charade);
 
   &__score {
     display: flex;
@@ -56,7 +56,7 @@ const HeartIcon = computed(() => {
 
     span {
       font-weight: 700;
-      color: var(--concept-text-secondary);
+      color: var(--color-cadet-blue);
     }
   }
 }

@@ -17,7 +17,7 @@ const headingElement = computed(() => `h${props.level}`)
 <style lang="scss" scoped>
 .Heading {
   @include typography-heading-styles;
-  color: var(--concept-text-primary);
+  color: var(--color-white);
 
   &--level-1 {
     font-size: rem(40px);

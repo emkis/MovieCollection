@@ -110,7 +110,7 @@ $poster-height: 400px;
 
     > strong {
       margin-left: rem(6px);
-      color: var(--concept-text-primary);
+      color: var(--color-white);
     }
   }
 
