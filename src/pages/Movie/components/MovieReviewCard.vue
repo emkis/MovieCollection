@@ -36,8 +36,8 @@ const HeartIcon = computed(() => {
 .MovieReviewCard {
   display: flex;
   flex-direction: column;
-  min-height: rem(320px);
-  padding: rem(24px);
+  min-height: 320px;
+  padding: 24px;
   border-radius: $border-radius-m;
   background: $color-charade;
 
@@ -48,7 +48,7 @@ const HeartIcon = computed(() => {
   }
 
   &__comment {
-    margin: rem(24px 0);
+    margin: 24px 0;
   }
 
   &__author {

@@ -25,7 +25,7 @@ const reviews = movieReviewsQuery.data
 <style lang="scss" scoped>
 .MovieReviews {
   &__heading {
-    margin-bottom: rem(24px);
+    margin-bottom: 24px;
   }
 }
 </style>

@@ -11,7 +11,7 @@
   gap: 21px;
   grid-template-rows: repeat(3, $square-height);
   grid-template-columns: repeat(12, 1fr);
-  padding: rem(24px);
+  padding: 24px;
   min-height: $square-height;
   background: $color-charade;
   border-radius: $border-radius-m;

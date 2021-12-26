@@ -100,7 +100,7 @@ $poster-height: 400px;
 
   &__about {
     display: block;
-    margin: rem(24px 0 14px);
+    margin: 24px 0 14px;
   }
 
   &__rating {
@@ -109,14 +109,14 @@ $poster-height: 400px;
     align-items: center;
 
     > strong {
-      margin-left: rem(6px);
+      margin-left: 6px;
       color: $color-white;
     }
   }
 
   &__description {
     text-align: left;
-    margin: rem(72px 0 120px);
+    margin: 72px 0 120px;
   }
 }
 </style>
