@@ -1,7 +1,3 @@
-export function makeRgba(colorName: string, alpha: number) {
-  return `rgba(${colorName}, ${alpha})`
-}
-
 export enum EThemeColors {
   shark = 'var(--color-shark)',
   charade = 'var(--color-charade)',
@@ -20,20 +16,4 @@ export enum EThemeColors {
   geraldineRGB = 'var(--color-geraldine-rgb)',
   heliotrope = 'var(--color-heliotrope)',
   heliotropeRGB = 'var(--color-heliotrope-rgb)',
-}
-
-export enum EThemeConcepts {
-  primaryColor = 'var(--color-dodger-blue)',
-  primaryColorRGB = 'var(--color-dodger-blue-rgb)',
-
-  overBackground = 'var(--color-charade)',
-  overBackgroundElement = 'var(--color-bright-gray)',
-
-  textPrimary = 'var(--color-white)',
-  textSecondary = 'var(--color-cadet-blue)',
-  textFaded = 'var(--color-shuttle-gray)',
-
-  successColor = 'var(--color-granny-smith-apple)',
-  attentionColor = 'var(--color-kournikova)',
-  errorColor = 'var(--color-geraldine)',
 }
