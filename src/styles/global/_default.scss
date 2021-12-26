@@ -2,12 +2,12 @@
 
 body,
 #app {
-  background: var(--color-shark);
+  background: $color-shark;
 }
 
 #app {
   @include typography-body-styles;
-  color: var(--color-cadet-blue);
+  color: $color-cadet-blue;
 }
 
 h1,
@@ -15,7 +15,7 @@ h2,
 h3,
 h4 {
   @include typography-heading-styles;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 svg {

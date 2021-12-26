@@ -87,7 +87,7 @@ $poster-height: 400px;
         180deg,
         rgba(196, 196, 196, 0) 0%,
         rgba(78, 79, 83, 0.688174) 59.56%,
-        var(--color-shark) 91.25%
+        $color-shark 91.25%
       );
     }
   }
@@ -110,7 +110,7 @@ $poster-height: 400px;
 
     > strong {
       margin-left: rem(6px);
-      color: var(--color-white);
+      color: $color-white;
     }
   }
 

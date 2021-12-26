@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<TextProps>(), {
 .Text {
   font-size: rem(20px);
   @include typography-body-styles;
-  color: var(--color-cadet-blue);
+  color: $color-cadet-blue;
 }
 
 strong.Text {

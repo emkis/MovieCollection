@@ -31,7 +31,7 @@ const handleClick = () => !props.disabled && emit('onClick')
   line-height: 1;
   border: 1px solid transparent;
   border-radius: $border-radius-s;
-  color: var(--color-white);
+  color: $color-white;
   user-select: none;
   transition: background-color 200ms, color 200ms, opacity 200ms;
   cursor: pointer;
@@ -46,11 +46,11 @@ const handleClick = () => !props.disabled && emit('onClick')
   }
 
   &--default {
-    background: var(--color-bright-gray);
+    background: $color-bright-gray;
   }
 
   &--primary {
-    background: var(--concept-primary-color);
+    background: $concept-primary-color;
   }
 
   &--outlined {
@@ -59,7 +59,7 @@ const handleClick = () => !props.disabled && emit('onClick')
   }
 
   &--error {
-    background: var(--color-geraldine);
+    background: $color-geraldine;
   }
 
   @media (min-width: $breakpoint-m) {
