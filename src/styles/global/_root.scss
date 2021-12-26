@@ -1,6 +1,5 @@
-@use '@/styles/theme' as *;
+@use 'colors' as *;
 
 :root {
   @include colors;
-  @include concepts;
 }
