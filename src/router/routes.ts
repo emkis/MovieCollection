@@ -1,13 +1,13 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import { MovieCollection } from '@/pages/MovieCollection'
+import { Movies } from '@/pages/Movies'
 import { MovieLazy } from '@/router/lazy-routes'
 
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'MovieCollection',
-    component: MovieCollection,
+    name: 'Movies',
+    component: Movies,
   },
   {
     path: '/movie/:slug',
