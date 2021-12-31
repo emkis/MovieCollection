@@ -12,7 +12,7 @@
     <ul class="movie-list">
       <template v-if="moviesQuery.isSuccess.value">
         <li v-for="movie in movies" :key="movie.id" class="movie-list__item">
-          <MovieCollectionCard
+          <MovieCard
             tabindex="0"
             role="button"
             :movie="movie"
@@ -25,7 +25,7 @@
 
       <template v-else-if="moviesQuery.isFetching.value">
         <li v-for="item in 5" :key="item" class="movie-list__item" aria-hidden="true">
-          <MovieCollectionCardLoader />
+          <MovieCardLoader />
         </li>
       </template>
     </ul>
@@ -44,8 +44,8 @@ import { Container } from '@/components/Container'
 import { Heading } from '@/components/Heading'
 import { IconPopcorn } from '@/components/Icons'
 import { Text } from '@/components/Text'
-import MovieCollectionCard from './components/MovieCollectionCard.vue'
-import MovieCollectionCardLoader from './components/MovieCollectionCardLoader.vue'
+import MovieCard from './components/MovieCard.vue'
+import MovieCardLoader from './components/MovieCardLoader.vue'
 
 const router = useRouter()
 const queryClient = useQueryClient()

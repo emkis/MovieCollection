@@ -19,11 +19,11 @@ import { Text } from '@/components/Text'
 import { IconHeart, IconHalfHeart } from '@/components/Icons'
 import { MovieInfo } from '@/components/MovieInfo'
 
-type MovieCollectionCardProps = {
+type MovieCardProps = {
   movie: Movie
 }
 
-const props = defineProps<MovieCollectionCardProps>()
+const props = defineProps<MovieCardProps>()
 const RatingIcon = computed(() =>
   MovieService.isScoreOverAverage(props.movie.score) ? IconHeart : IconHalfHeart
 )
