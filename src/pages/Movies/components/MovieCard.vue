@@ -1,10 +1,10 @@
 <template>
   <div class="card">
     <Heading level="3">{{ movie.name }}</Heading>
-    <MovieInfo :year="movie.year" :category="movie.category" />
+    <MovieInfo class="info" :year="movie.year" :category="movie.category" />
     <div class="rating-group">
       <Component :is="RatingIcon" size="30" :color="ThemeColors.geraldine" />
-      <Text as="strong">{{ movie.score }}%</Text>
+      <Text as="span">{{ movie.score }}%</Text>
     </div>
   </div>
 </template>
@@ -32,6 +32,10 @@ const RatingIcon = computed(() =>
 <style lang="scss" scoped>
 .card {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-nano;
+  height: 100%;
   background: $color-charade;
   border-radius: $border-radius-m;
   transition: transform 100ms ease, box-shadow 100ms ease;
@@ -47,18 +51,18 @@ const RatingIcon = computed(() =>
   &:active {
     transform: scale(0.98);
   }
+}
 
-  > * + * {
-    margin-top: 6px;
-  }
+.info {
+  margin-top: auto;
 }
 
 .rating-group {
   display: flex;
   align-items: center;
+  gap: $spacing-nano;
 
-  > strong {
-    margin-left: 6px;
+  > span {
     color: $color-white;
   }
 }
