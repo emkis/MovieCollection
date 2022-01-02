@@ -6,12 +6,14 @@
 
 <script lang="ts" setup>
 import { withDefaults } from 'vue'
+import { ThemeColors } from '@/services/theme'
 
 type TextElement = 'p' | 'span' | 'strong' | 'small'
-type TextProps = { as?: TextElement }
+type TextProps = { as?: TextElement; color?: ThemeColors }
 
 const props = withDefaults(defineProps<TextProps>(), {
   as: 'p',
+  color: ThemeColors.cadetBlue,
 })
 </script>
 
@@ -19,7 +21,7 @@ const props = withDefaults(defineProps<TextProps>(), {
 .Text {
   font-size: rem(20px);
   @include typography-body-styles;
-  color: $color-cadet-blue;
+  color: v-bind(color);
 }
 
 strong.Text {
