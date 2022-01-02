@@ -31,7 +31,7 @@ const RatingIcon = computed(() =>
 
 <style lang="scss" scoped>
 .card {
-  padding: 24px;
+  padding: $spacing-xxs;
   display: flex;
   flex-direction: column;
   gap: $spacing-nano;
