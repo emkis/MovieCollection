@@ -1,17 +1,12 @@
 <template>
-  <section class="MovieReviews">
-    <Heading class="MovieReviews__heading" level="3">Critic Reviews</Heading>
-
-    <MovieReviewCardList>
-      <MovieReviewCard v-for="review in reviews" :key="review.id" :review="review" />
-    </MovieReviewCardList>
-  </section>
+  <MovieReviewCardList>
+    <MovieReviewCard v-for="review in reviews" :key="review.id" :review="review" />
+  </MovieReviewCardList>
 </template>
 
 <script lang="ts" setup>
 import { useMovieReviewsQuery } from '../queries/movie-reviews-query'
 
-import { Heading } from '@/components/Heading'
 import MovieReviewCard from './MovieReviewCard.vue'
 import MovieReviewCardList from './MovieReviewCardList.vue'
 
@@ -21,11 +16,3 @@ const props = defineProps<MovieReviewProps>()
 const movieReviewsQuery = useMovieReviewsQuery(props.movieSlug)
 const reviews = movieReviewsQuery.data
 </script>
-
-<style lang="scss" scoped>
-.MovieReviews {
-  &__heading {
-    margin-bottom: 24px;
-  }
-}
-</style>
