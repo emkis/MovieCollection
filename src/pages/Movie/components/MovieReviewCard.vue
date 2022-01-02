@@ -1,17 +1,18 @@
 <template>
-  <li class="MovieReviewCard">
-    <Heading level="4" class="MovieReviewCard__score">
-      <Component :is="HeartIcon" size="30" :color="ThemeColors.geraldine" />
+  <li class="card-container">
+    <Heading level="3" class="score">
+      <Component :is="HeartIcon" size="36" :color="ThemeColors.geraldine" />
       {{ review.score }}%
     </Heading>
-    <Text class="MovieReviewCard__comment">{{ review.comment }}</Text>
-    <Heading class="MovieReviewCard__author" level="4">
-      {{ review.author }}
-      <br />
-      <span>
+    <Text>{{ review.comment }}</Text>
+    <div class="author">
+      <Heading level="4">
+        {{ review.author }}
+      </Heading>
+      <Text as="small">
         from <i>{{ review.authorCompany }}</i>
-      </span>
-    </Heading>
+      </Text>
+    </div>
   </li>
 </template>
 
@@ -33,31 +34,27 @@ const HeartIcon = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.MovieReviewCard {
+.card-container {
   display: flex;
   flex-direction: column;
+  gap: $spacing-xxs;
   min-height: 320px;
-  padding: 24px;
+  padding: $spacing-xxs;
   border-radius: $border-radius-m;
   background: $color-charade;
+}
 
-  &__score {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+.score {
+  display: flex;
+  gap: $spacing-nano;
+  align-items: center;
+}
 
-  &__comment {
-    margin: 24px 0;
-  }
+.author {
+  margin-top: auto;
 
-  &__author {
-    margin-top: auto;
-
-    span {
-      font-weight: 700;
-      color: $color-cadet-blue;
-    }
+  small {
+    font-weight: 700;
   }
 }
 </style>
