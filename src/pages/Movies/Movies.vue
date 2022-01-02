@@ -25,8 +25,8 @@
         </template>
 
         <template v-else-if="moviesQuery.isFetching.value">
-          <li v-for="item in 5" :key="item" class="movie-list__item" aria-hidden="true">
-            <MovieCardLoader />
+          <li v-for="item in 5" :key="item" aria-hidden="true">
+            <MovieCardLoader class="movie-list__card" />
           </li>
         </template>
       </ul>
