@@ -28,10 +28,7 @@
 
         <section>
           <Heading level="2">Critic Reviews</Heading>
-          <Suspense>
-            <MovieReviews :movieSlug="movieSlug" />
-            <template #fallback>Loading...</template>
-          </Suspense>
+          <MovieReviews :movieSlug="movieSlug" />
         </section>
       </main>
     </SafeEdgesContainer>
