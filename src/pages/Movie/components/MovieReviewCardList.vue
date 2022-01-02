@@ -1,11 +1,11 @@
 <template>
-  <ol class="MovieReviewCardList">
+  <ol class="review-list">
     <slot />
   </ol>
 </template>
 
 <style lang="scss" scoped>
-.MovieReviewCardList {
+.review-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: $spacing-xxs;
