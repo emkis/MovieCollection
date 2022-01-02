@@ -1,7 +1,12 @@
 <template>
   <ol class="review-list">
-    <MovieReviewCardLoader />
-    <MovieReviewCard v-for="review in reviews" :key="review.id" :review="review" />
+    <template v-if="movieReviewsQuery.isSuccess.value">
+      <MovieReviewCard v-for="review in reviews" :key="review.id" :review="review" />
+    </template>
+
+    <template v-else-if="movieReviewsQuery.isFetching.value">
+      <MovieReviewCardLoader v-for="item in 2" :key="item" />
+    </template>
   </ol>
 </template>
 
