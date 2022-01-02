@@ -38,7 +38,6 @@ const HeartIcon = computed(() => {
   display: flex;
   flex-direction: column;
   gap: $spacing-xxs;
-  min-height: 320px;
   padding: $spacing-xxs;
   border-radius: $border-radius-m;
   background: $color-charade;

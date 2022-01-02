@@ -1,5 +1,5 @@
 <template>
-  <div class="card-loader loader-container" aria-hidden="true">
+  <li class="card-loader loader-container" aria-hidden="true">
     <div class="rating-group">
       <IconHeart class="heart-pulse" :color="ThemeColors.geraldine" :size="36" />
       <div class="loader-row" style="--block-size: 56px" />
@@ -12,7 +12,7 @@
       <div class="loader-row" style="--block-size: 122px" />
       <div class="loader-row" style="--block-size: 72px" />
     </div>
-  </div>
+  </li>
 </template>
 
 <script lang="ts" setup>
