@@ -30,6 +30,7 @@
           </li>
         </template>
       </ul>
+      <FooterSection />
     </main>
   </SafeEdgesContainer>
 </template>
@@ -48,6 +49,7 @@ import { IconPopcorn } from '@/components/Icons'
 import { Text } from '@/components/Text'
 import MovieCard from './components/MovieCard.vue'
 import MovieCardLoader from './components/MovieCardLoader.vue'
+import FooterSection from './components/FooterSection.vue'
 
 const router = useRouter()
 const queryClient = useQueryClient()
@@ -97,7 +99,7 @@ const handleMovieHover = debounce(prefetchMovie, 300)
 }
 
 .movie-list {
-  margin-top: $spacing-xxl;
+  margin: $spacing-xxl 0 $spacing-xxxl;
   display: grid;
   gap: $spacing-xxs;
   grid-template-columns: 1fr;
