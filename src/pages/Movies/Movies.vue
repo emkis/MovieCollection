@@ -1,35 +1,37 @@
 <template>
-  <Container class="container">
-    <Heading class="app-title" level="1">
-      Movie Collection
-      <IconPopcorn size="100%" />
-    </Heading>
+  <SafeEdgesContainer>
+    <main class="container">
+      <header class="header">
+        <IconPopcorn class="header__icon" size="100%" />
+        <Heading level="1">Movie Collection</Heading>
+        <Text class="header__about">
+          An awesome movie collection with some nice user interface interactions
+        </Text>
+      </header>
 
-    <Text class="app-description">
-      An awesome movie collection with some nice user interface interactions
-    </Text>
+      <ul class="movie-list">
+        <template v-if="moviesQuery.isSuccess.value">
+          <li v-for="movie in movies" :key="movie.id">
+            <MovieCard
+              tabindex="0"
+              role="button"
+              class="movie-list__card"
+              :movie="movie"
+              @click="handleMovieClick(movie)"
+              @keydown.space.enter.prevent="handleMovieClick(movie)"
+              @mouseenter="handleMovieHover(movie)"
+            />
+          </li>
+        </template>
 
-    <ul class="movie-list">
-      <template v-if="moviesQuery.isSuccess.value">
-        <li v-for="movie in movies" :key="movie.id" class="movie-list__item">
-          <MovieCard
-            tabindex="0"
-            role="button"
-            :movie="movie"
-            @click="handleMovieClick(movie)"
-            @keydown.space.enter.prevent="handleMovieClick(movie)"
-            @mouseenter="handleMovieHover(movie)"
-          />
-        </li>
-      </template>
-
-      <template v-else-if="moviesQuery.isFetching.value">
-        <li v-for="item in 5" :key="item" class="movie-list__item" aria-hidden="true">
-          <MovieCardLoader />
-        </li>
-      </template>
-    </ul>
-  </Container>
+        <template v-else-if="moviesQuery.isFetching.value">
+          <li v-for="item in 5" :key="item" class="movie-list__item" aria-hidden="true">
+            <MovieCardLoader />
+          </li>
+        </template>
+      </ul>
+    </main>
+  </SafeEdgesContainer>
 </template>
 
 <script lang="ts" setup>
@@ -40,7 +42,7 @@ import { useQueryClient } from 'vue-query'
 import { createQueryKey, fetchMovieDetails } from '@/pages/Movie/queries/movie-details-query'
 import type { Movie } from '@/services/api/movie'
 
-import { Container } from '@/components/Container'
+import { SafeEdgesContainer } from '@/components/SafeEdgesContainer'
 import { Heading } from '@/components/Heading'
 import { IconPopcorn } from '@/components/Icons'
 import { Text } from '@/components/Text'
@@ -69,31 +71,39 @@ const handleMovieHover = debounce(prefetchMovie, 300)
 <style lang="scss" scoped>
 .container {
   margin: 0 auto;
-  max-width: 768px;
-  text-align: center;
+  max-width: 1200px;
+  padding: $spacing-md 0 $spacing-xxl;
 }
 
-.app-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.header {
+  display: grid;
+  gap: $spacing-xxxs;
+  text-align: left;
 
-  > svg {
-    max-width: rem(40px);
-    margin-left: 16px;
-
+  &__icon {
+    max-width: 40px;
     @media (min-width: $breakpoint-m) {
-      max-width: rem(60px);
+      max-width: 60px;
     }
+  }
+
+  &__about {
+    max-width: 426px;
   }
 }
 
-.app-description {
-  margin: 24px auto 72px;
-  max-width: 450px;
-}
+.movie-list {
+  margin-top: $spacing-xxl;
+  display: grid;
+  gap: $spacing-xxs;
+  grid-template-columns: 1fr;
 
-.movie-list > .movie-list__item:not(:last-child) {
-  margin-bottom: 24px;
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  &__card {
+    min-height: 228px;
+  }
 }
 </style>
