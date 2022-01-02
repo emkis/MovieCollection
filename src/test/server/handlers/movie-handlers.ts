@@ -5,7 +5,7 @@ import { movieDatabase } from '@/test/data/movies-database'
 import type { Movie, MovieDetail, MovieReview } from '@/services/api/movie'
 
 const { apiUrl } = environment
-const defaultDelay = 1800
+const defaultDelay = 2500
 
 function notFoundResponse() {
   return response(
