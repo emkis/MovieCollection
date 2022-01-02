@@ -72,7 +72,11 @@ const handleMovieHover = debounce(prefetchMovie, 300)
 .container {
   margin: 0 auto;
   max-width: 1200px;
-  padding: $spacing-md 0 $spacing-xxl;
+  padding: $spacing-xxl 0 $spacing-xxl;
+
+  @media (min-width: $breakpoint-m) {
+    padding-top: $spacing-xxxl;
+  }
 }
 
 .header {
