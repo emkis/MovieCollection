@@ -28,6 +28,6 @@ const categories = computed(() => props.category.join(', '))
 
 <style lang="scss" scoped>
 .MovieInfo__spacer {
-  margin: 0 3px;
+  margin: 0 $spacing-quarck;
 }
 </style>
