@@ -9,10 +9,11 @@ You can access the live app [on this link](https://emkis-movie-collection.netlif
 ## Project stack
 - [TypeScript](https://www.typescriptlang.org)
 - [Vue 3](https://v3.vuejs.org) with SFC `<script setup>`, Custom hooks and Contexts
-- [Mock Service Worker](https://mswjs.io) (MSW)
+- [Vue Query](https://vue-query.vercel.app) based on [React Query](https://react-query.tanstack.com)
+- [Mock Service Worker](https://mswjs.io) also known as MSW
 - [Cypress](https://www.cypress.io)
 - [Jest](https://jestjs.io)
-- [Axios](https://axios-http.com) with Caching and Automatic retry
+- [Axios](https://axios-http.com)
 
 ## Design
 I've built the entire app on my own using Figma, you can check out the full interface [on this link](https://www.figma.com/file/ZWSRg1JZO1kNDnaiz9KEts/Movie-Collection?node-id=0%3A1)
