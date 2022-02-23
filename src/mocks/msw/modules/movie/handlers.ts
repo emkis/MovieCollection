@@ -1,7 +1,7 @@
 import { rest, RestHandler, response, context } from 'msw'
 import { omit, pick } from 'lodash-es'
 import { environment } from '@/configs/environment'
-import { movieDatabase } from '@/test/data/movies-database'
+import { movieDatabase } from './database'
 import type { Movie, MovieDetail, MovieReview } from '@/services/api/movie'
 
 const { apiUrl } = environment
