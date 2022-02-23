@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { router } from '@/router'
-import '@/mocks/msw/server/development'
+import '@msw/server/development'
 
 import App from '@/App.vue'
 import '@/styles/global/index.scss'
