@@ -14,7 +14,8 @@
     "types": [],
     "typeRoots": ["types"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@msw/*": ["src/mocks/msw/*"]
     },
     "lib": ["esnext", "dom"]
   },
